@@ -1,0 +1,162 @@
+/*PenPick 메인페이지 이미지*/
+#BannerImg {
+  background: url('./img/메인커버사진2.jpg') center no-repeat;
+  background-size: cover;
+  height: 900px;
+  color: rgb(255, 255, 255);
+}
+
+#Login_SignUp_Menu {
+  float: right;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+
+#Login,
+#SignUp {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#Login {
+  margin-right: 40px;
+}
+
+#CartImg {
+  width: 50px;
+}
+
+/*  */
+/*PenPick 메인페이지 내 모든 a태그*/
+#PensionListLink,
+#MypageLink,
+#QuestionAndAnswerLink,
+#CartListLink {
+  margin-bottom: 10px;
+  color: white;
+  text-decoration-line: none;
+  margin-right: 100px;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*PenPick 배너 카테고리 링크*/
+#BannerLink {
+  padding-top: 30px;
+}
+
+#MainLink {
+  text-decoration: none;
+  color: white;
+}
+
+/*PenPick 타이틀*/
+#MainLogo {
+  font-size: 50px;
+  font-weight: 100;
+  margin-right: 100px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*PenPick 로고이미지*/
+#logo {
+  width: 70px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+/* 메인페이지 멘트 감싼 박스 */
+#MainTitleBox {
+  width: 1600px;
+  margin: auto;
+  margin-top: 300px;
+}
+
+/* 메인페이지 멘트 */
+#MainTitle {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+/*PenPick 이벤트이미지와 링크 묶어놓은 div*/
+#Event {
+  width: 800px;
+  margin: auto;
+}
+
+/*PenPick 이벤트이미지로 넘어가는 이미지*/
+#EventImg {
+  width: 800px;
+  margin-top: 50px;
+}
+
+/*PenPick 검색창*/
+#SearchForm {
+  background-color: white;
+  height: 200px;
+  width: 1600px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 30px;
+  color: black;
+  border: none;
+}
+
+#form_Img_Title {
+  padding-top: 30px;
+}
+
+#formImg {
+  width: 80px;
+  margin-left: 30px;
+  padding-bottom: 20px;
+}
+
+#formTitle {
+  font-size: 30px;
+  color: rgb(0, 168, 243);
+  font-weight: 600;
+}
+
+/*PenPick 검색창의 지역 input태그*/
+#input1 {
+  height: 60px;
+  width: 500px;
+  margin-left: 50px;
+}
+
+/*PenPick 검색창의 input태그*/
+#input2 {
+  height: 60px;
+  width: 400px;
+  margin-left: 20px;
+}
+
+/*PenPick 검색창의 날짜 input태그*/
+#input3 {
+  height: 60px;
+  width: 400px;
+  margin-left: 20px;
+}
+
+/*PenPick 검색창 속 파란색 막대기 신경 안써도 됨*/
+#SearchFormBar {
+  background-color: rgb(0, 168, 243);
+  width: 1530px;
+  height: 5px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+/*PenPick 검색창의 검색버튼*/
+#SearchButton {
+  width: 150px;
+  background-color: rgb(0, 168, 243);
+  color: white;
+  margin-left: 30px;
+}
