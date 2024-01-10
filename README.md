@@ -1,5 +1,5 @@
 # PenPick
-## 나만의 펜션을 픽하다
+나만의 펜션을 픽하다
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
