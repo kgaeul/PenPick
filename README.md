@@ -5,6 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## 미리보기
 
-##상세설명
+## 상세설명
 
 ## 배운점 & 느낀점
