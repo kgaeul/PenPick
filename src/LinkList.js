@@ -4,7 +4,7 @@ import PensionMainPage from './PensionMainPage';
 import Mypage from './MyPage';
 import PensionList from './PensionList';
 import Resevation from './Resevation';
-import QuestionAndAnswer from './QnA';
+import QnA from './QnA';
 import CartList from './Cart_List';
 import EventList from './EventList';
 
@@ -21,10 +21,7 @@ function Link() {
         {/*예약페이지 링크*/}
         <Route path='/Resevation' element={<Resevation />}></Route>
         {/*문의하기 링크*/}
-        <Route
-          path='/QuestionAndAnswer'
-          element={<QuestionAndAnswer />}
-        ></Route>
+        <Route path='/QnA' element={<QnA />}></Route>
         {/*장바구니 링크*/}
         <Route path='/CartList' element={<CartList />}></Route>
         {/*이벤트 링크*/}

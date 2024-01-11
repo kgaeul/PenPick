@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import PensionMainPage from './PensionMainPage';
-import LinkList from './LinkList';
-import Home from './Home';
-import Header from './Header';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   <React.StrictMode>
-    <LinkList />
+    <App />
   </React.StrictMode>
 );
 

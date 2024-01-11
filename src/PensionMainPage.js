@@ -5,6 +5,8 @@ import EventImg from './img/EventImg1.jpg';
 import FormImg from './img/파란집.png';
 import React, { useState } from 'react';
 import CartImg from './img/장바구니.png';
+import Pagination from 'react-js-pagination';
+import Header from './Header';
 import {
   Button,
   Container,
@@ -23,35 +25,8 @@ function PensionMainPage() {
   };
   return (
     <div>
-      <div id='BannerImg'>
-        <div id='Login_SignUp_Menu'>
-          <img id='CartImg' src={CartImg} alt='장바구니'></img>
-          <a id='Login' href='/Login'>
-            로그인
-          </a>
-          <a id='SignUp' href='/SignUp'>
-            회원가입
-          </a>
-        </div>
-        {/* 메인페이지 카테고리 */}
-        <div id='BannerLink'>
-          <img id='logo' src={PenPickLogo} alt='머시기' />
-          <a href='/' id='MainLink'>
-            <span id='MainLogo'>PenPick</span>
-          </a>
-          <a id='PensionListLink' href='/PensionList'>
-            펜션목록
-          </a>
-          <a id='MypageLink' href='/Mypage'>
-            마이페이지
-          </a>
-          <a id='QuestionAndAnswerLink' href='/QuestionAndAnswer'>
-            문의게시판
-          </a>
-          <a id='CartListLink' href='/CartList'>
-            장바구니
-          </a>
-        </div>
+      <Header />
+      <div id='BannerImg1'>
         {/* 메인 문구 */}
         <div id='MainTitleBox'>
           <h1 id='MainTitle'>
@@ -76,12 +51,6 @@ function PensionMainPage() {
               className='form-control col-md-3'
               placeholder='지역을 입력하세요'
             />
-            {/* 인원입력칸 */}
-            <input
-              id='input2'
-              className='form-control col-md-3'
-              placeholder='인원 입력하세요'
-            />
             {/* 날짜 검색창 */}
             <input
               id='input3'
@@ -89,9 +58,16 @@ function PensionMainPage() {
               type='date'
               placeholder='날짜'
             />
+            {/* 인원입력칸 */}
+            <input
+              id='input2'
+              className='form-control col-md-3'
+              placeholder='인원 입력하세요'
+            />
+
             {/* 펜션 검색버튼 */}
             <button id='SearchButton' className='btn  col-md-3'>
-              검색하기
+              검색
             </button>
           </form>
         </div>
@@ -175,6 +151,8 @@ function PensionMainPage() {
           </li>
         </ul>
       </nav>
+
+      <Pagination></Pagination>
     </div>
   );
 }
