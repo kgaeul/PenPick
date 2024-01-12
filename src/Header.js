@@ -1,6 +1,5 @@
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PenPickLogo from './img/PenPickLogo.png';
 import EventImg from './img/EventImg1.jpg';
 import FormImg from './img/파란집.png';
 import React, { useState } from 'react';
@@ -15,6 +14,7 @@ import {
   FormControl,
   Nav,
 } from 'react-bootstrap';
+import PenPickLogo from './img/펜픽로고.png';
 
 function Header() {
   return (
@@ -31,9 +31,8 @@ function Header() {
         </div>
         {/* 메인페이지 카테고리 */}
         <div id='HeaderBannerLink'>
-          <img id='Headerlogo' src={PenPickLogo} alt='머시기' />
           <a href='/' id='HeaderMainLink'>
-            <span id='HeaderMainLogo'>PenPick</span>
+            <img id='HeaderPenPickLogo' src={PenPickLogo} alt='펜픽로고'></img>
           </a>
           <a id='HeaderPensionListLink' href='/PensionList'>
             펜션목록
