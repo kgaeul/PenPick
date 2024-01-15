@@ -74,12 +74,14 @@ function PensionMainPage() {
       </div>
       {/* 이벤트 배너 */}
       <div id='Event'>
-        <a id='EventLink' href='/EventList'>
+        <a id='EventLink' href='/EventPage'>
           <div>
             <img id='EventImg' src={EventImg} alt='이벤트이미지' />
           </div>
         </a>
       </div>
+
+      <a href='/PensionList'> 인기펜션</a>
 
       <Container>
         <Row className='mt-3'>

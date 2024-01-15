@@ -21,7 +21,9 @@ function Header() {
     <div>
       <div id='HeaderBannerImg'>
         <div id='HeaderLogin_SignUp_Menu'>
-          <img id='HeaderCartImg' src={CartImg} alt='장바구니'></img>
+          <a id='HeaderCartListLink' href='/CartList'>
+            <img id='HeaderCartImg' src={CartImg} alt='장바구니'></img>
+          </a>
           <a id='HeaderLogin' href='/Login'>
             로그인
           </a>
@@ -32,22 +34,20 @@ function Header() {
         {/* 메인페이지 카테고리 */}
         <div id='HeaderBannerLink'>
           <a href='/' id='HeaderMainLink'>
-            <img id='HeaderPenPickLogo' src={PenPickLogo} alt='펜픽로고'></img>
-          </a>
-          <a id='HeaderPensionListLink' href='/PensionList'>
-            펜션목록
+            <img id='HeaderPenPickImg' src={PenPickLogo} alt='펜픽로고'></img>
           </a>
           <a id='HeaderMypageLink' href='/Mypage'>
             마이페이지
           </a>
           <a id='HeaderQnALink' href='/QnA'>
-            문의게시판
+            고객센터
           </a>
-          <a id='HeaderCartListLink' href='/CartList'>
-            장바구니
+          <a id='HeaderEventLink' href='/EventPage'>
+            이벤트
           </a>
         </div>
       </div>
+      <hr></hr>
     </div>
   );
 }

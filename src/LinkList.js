@@ -5,8 +5,8 @@ import Mypage from './MyPage';
 import PensionList from './PensionList';
 import Resevation from './Resevation';
 import QnA from './QnA';
-import CartList from './Cart_List';
-import EventList from './EventList';
+import CartList from './CartList';
+import EventPage from './EventPage';
 
 function Link() {
   return (
@@ -25,7 +25,7 @@ function Link() {
         {/*장바구니 링크*/}
         <Route path='/CartList' element={<CartList />}></Route>
         {/*이벤트 링크*/}
-        <Route path='/EventList' element={<EventList />}></Route>
+        <Route path='EventPage' element={<EventPage />}></Route>
       </Routes>
     </Router>
   );
