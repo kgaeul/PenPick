@@ -8,6 +8,7 @@ import QnA from '../component/QnA';
 import CartList from '../component/CartList';
 import EventPage from '../component/EventPage';
 import PensionDetailLink from '../component/PensionDetailLink';
+import PensionMap from './PensionMap';
 
 function Link() {
   return (
@@ -27,7 +28,10 @@ function Link() {
         <Route path='/CartList' element={<CartList />}></Route>
         {/*이벤트 링크*/}
         <Route path='EventPage' element={<EventPage />}></Route>
+        {/*펜션 상세 페이지 링크*/}
         <Route path='PensionDetailLink' element={<PensionDetailLink />}></Route>
+        {/* 지도 링크 */}
+        <Route path='PesionMap' element={<PensionMap />}></Route>
       </Routes>
     </Router>
   );

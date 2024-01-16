@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Header from './Header';
+import '../css/PensionMap.css';
 
 const PensionMap = () => {
   useEffect(() => {
@@ -6,7 +8,7 @@ const PensionMap = () => {
     const script = document.createElement('script');
     script.async = true;
     script.src =
-      'https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2cb6072954cd942471ddef6a40b6b80&autoload=false';
+      'https://dapi.kakao.com/v2/maps/sdk.js?appkey=5f5613b170ddc98c39f71811791f5fc8&autoload=false';
     document.head.appendChild(script);
 
     script.onload = () => {
@@ -30,7 +32,16 @@ const PensionMap = () => {
     };
   }, []); // 빈 배열을 넣어 한 번만 실행되도록 설정
 
-  return <div id='map' style={{ width: '100%', height: '400px' }}></div>;
+  return (
+    <div>
+      <Header />
+      <p id='MapTitle'>지도로 검색하기</p>
+      <div
+        id='map'
+        style={{ width: '80%', height: '700px', margin: 'auto' }}
+      ></div>
+    </div>
+  );
 };
 
 export default PensionMap;
