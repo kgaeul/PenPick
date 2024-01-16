@@ -40,7 +40,6 @@ function SearchHeader() {
             <img id='HeaderPenPickImg' src={PenPickLogo} alt='펜픽로고'></img>
           </a>
           <form id='PensionSearchForm'>
-            <span id='PensionSearchResult'>검색 결과 </span>
             <input id='PensionInput' type='text' />
             <span id='InputBar'>|</span>
             <img src={Calendar} id='Calendar' alt='Calendar' />

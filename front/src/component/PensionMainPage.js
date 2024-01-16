@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PenPickLogo from '../img/PenPickLogo.png';
 import EventImg from '../img/EventImg1.jpg';
 import FormImg from '../img/파란집.png';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CartImg from '../img/장바구니.png';
 import Pagination from 'react-js-pagination';
 import Header from '../component/Header';
@@ -20,13 +20,16 @@ import pensionImg1 from '../img/JS애견풀빌라_2_공공3유형.jpg';
 import pensionImg2 from '../img/꽃지화이트펜션_2_공공3유형.jpg';
 import pensionImg3 from '../img/이른아침호숫가펜션_3_공공3유형.jpg';
 import pensionImg4 from '../img/이른아침호숫가펜션_5_공공3유형.jpg';
+import axios from 'axios';
 
 function PensionMainPage() {
-  const [activeTab, setActiveTab] = useState('domestic');
+  const [name, SetName] = useState('');
+  const [address, setAddress] = useState('');
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
+  const onSubmit = async () => {
+    window.location.href = '/search/' + name;
   };
+
   return (
     <div>
       <Header />
@@ -53,24 +56,33 @@ function PensionMainPage() {
             <input
               id='input1'
               className='form-control col-md-3'
-              placeholder='지역을 입력하세요'
+              placeholder='펜션을 입력하세요'
+              onChange={(e) => {
+                SetName(e.target.value);
+              }}
             />
             {/* 날짜 검색창 */}
-            <input
+            {/* <input
               id='input3'
               className='form-control col-md-3'
               type='date'
               placeholder='날짜'
-            />
+            /> */}
             {/* 인원입력칸 */}
-            <input
+            {/* <input
               id='input2'
               className='form-control col-md-3'
               placeholder='인원 입력하세요'
-            />
+            /> */}
 
             {/* 펜션 검색버튼 */}
-            <button id='SearchButton' className='btn  col-md-3'>
+            <button
+              id='SearchButton'
+              className='btn  col-md-3'
+              onClick={() => {
+                onSubmit();
+              }}
+            >
               검색
             </button>
           </form>
@@ -87,6 +99,7 @@ function PensionMainPage() {
           </div>
         </a>
       </div>
+      <a href='search'>펜션 목록</a>
 
       <div id='PopularPensionList'>
         <span id='PopularPensionTitle'>인기펜션 </span>

@@ -3,18 +3,18 @@ package com.penpick.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-import com.penpick.vo.PensionModel;
+import com.penpick.vo.Pensions;
 
-public interface PensionRepository extends JpaRepository<PensionModel, Integer>{
+public interface PensionRepository extends JpaRepository<Pensions, Integer>{
 	
+//	@Query("SELECT*FROM PENSIONS WHERE NAME =? OR ADDRESS=?")
 	
-	List<PensionModel> findByNameOrAddress(String SearchWord);
+	List<Pensions> findByNameOrAddress(String SearchWord1, String SearchWord2);
 	
-	List<PensionModel> findByName(String PensionName);
+	List<Pensions> findByName(String PensionName);
 	
-	List<PensionModel> findByAddress(String PensionAddress);
+	List<Pensions> findByAddress(String PensionAddress);
 	
 	
 
