@@ -12,7 +12,7 @@ public interface PensionRepository extends JpaRepository<Pensions, Integer>{
 	
 	List<Pensions> findByNameOrAddress(String SearchWord1, String SearchWord2);
 	
-	List<Pensions> findByName(String PensionName);
+	List<Pensions> findByName(String name);
 	
 	List<Pensions> findByAddress(String PensionAddress);
 	

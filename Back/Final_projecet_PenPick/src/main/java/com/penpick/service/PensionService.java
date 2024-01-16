@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.penpick.repository.PensionRepository;
 import com.penpick.vo.Pensions;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class PensionService {
 	
@@ -20,8 +22,12 @@ public class PensionService {
 	}
 
 	//펜션 이름 조회
-	public List<Pensions> PensionNameList(String PensionName){
-		return pensionRepository.findByName(PensionName);
+	public List<Pensions> PensionNameList(String name){
+		List<Pensions> pension = pensionRepository.findByName(name);
+		if(pension == null) {
+			throw new EntityNotFoundException("데이터가 엄서용~~"+name);
+		}
+		return pension;
 	}
 	
 	//펜션 지역 조회
