@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchHeader from './SearchHeader';
-import { useParams } from 'react-router-dom';
 import PensionMap from '../component/PensionMap';
 import MapImg from '../img/지도.png';
 import '../css/PensionList.css';
@@ -19,16 +18,24 @@ import Calendar from '../img/달력.png';
 import UserImg from '../img/사용자.png';
 import SearchButton from '../img/돋보기.png';
 import CartImg from '../img/장바구니.png';
+import { useLocation } from 'react-router-dom';
 
-function PensionList() {
+function PensionList({ searchResult }) {
   // 검색어
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
-  const [searchResult, setSearchResult] = useState([]);
-  const handleSearch = async () => {
+  const [searchResult2, setSearchResult2] = useState([]);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:8080/penpick/search?name=${searchTerm}`
+        `http://localhost:8080/penpick/searchAll`,
+        {
+          params: {
+            term: searchTerm,
+          },
+        }
       );
       console.log(response.data);
 
@@ -36,10 +43,10 @@ function PensionList() {
         ? response.data
         : [response.data];
 
-      setSearchResult(responseData);
+      setSearchResult2(responseData);
     } catch (error) {
       console.error('Error searching users:', error);
-      setSearchResult([]);
+      setSearchResult2([]);
     }
   };
 
@@ -126,28 +133,29 @@ function PensionList() {
         </div>
         <div className='col-md-8' id='PensionSearchList'>
           <ul>
-            {searchResult.map((pension) => (
-              <li key={pension.id}>
-                <p>Name: {pension.name}</p>
-                <p>주소</p>
-              </li>
+            {searchResult2.map((pension) => (
+              <div id='pensionBox' className='row' key={pension.id}>
+                <span id='pensionSearchImg' className='col-md-4'>
+                  이미지
+                </span>
+                <div id='pensionDescription' className='col-md-8'>
+                  <p id='pensionName'>{pension.name}</p>
+                  <p>{pension.address}</p>
+                  {pension.check_in} - {pension.check_out}
+                </div>
+                <hr id='PensionSearchListhr' />
+              </div>
             ))}
           </ul>
-          {/* {pension.map((pensions) => (
-            <div id='pensionBox' className='row' key={pensions.id}>
-              <span id='pensionSearchImg' className='col-md-4'>
-                이미지
-              </span>
-              <div id='pensionDescription' className='col-md-8'>
-                <h4 id='pensionName'>{pensions.name}</h4>
-                {pensions.address}
-                <br />
-                {pensions.check_in} - {pensions.check_out}
-                <br />
-              </div>
-              <hr id='PensionSearchListhr' />
-            </div>
-          ))} */}
+          <div>
+            <p>
+              {searchResult.map((pension) => (
+                <div key={pension.id}>
+                  <p>{pension.name}</p>
+                </div>
+              ))}
+            </p>
+          </div>
         </div>
       </div>
     </div>

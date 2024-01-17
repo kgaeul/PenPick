@@ -9,6 +9,7 @@ import CartList from '../component/CartList';
 import EventPage from '../component/EventPage';
 import PensionDetailLink from '../component/PensionDetailLink';
 import PensionMap from './PensionMap';
+import SearchResult from '../component/SearchResult';
 
 function Link() {
   return (
@@ -19,7 +20,7 @@ function Link() {
         {/*마이페이지 링크*/}
         <Route path='/Mypage' element={<Mypage />}></Route>
         {/*펜션목록 링크*/}
-        <Route path='/search' element={<PensionList />}></Route>
+        <Route path='/pensionsearch' element={<PensionList />}></Route>
         {/*예약페이지 링크*/}
         <Route path='/Resevation' element={<Resevation />}></Route>
         {/*문의하기 링크*/}
@@ -27,11 +28,16 @@ function Link() {
         {/*장바구니 링크*/}
         <Route path='/CartList' element={<CartList />}></Route>
         {/*이벤트 링크*/}
-        <Route path='EventPage' element={<EventPage />}></Route>
+        <Route path='/EventPage' element={<EventPage />}></Route>
         {/*펜션 상세 페이지 링크*/}
-        <Route path='PensionDetailLink' element={<PensionDetailLink />}></Route>
+        <Route
+          path='/PensionDetailLink'
+          element={<PensionDetailLink />}
+        ></Route>
         {/* 지도 링크 */}
-        <Route path='PesionMap' element={<PensionMap />}></Route>
+        <Route path='/PesionMap' element={<PensionMap />}></Route>
+        {/* 검색 결과 */}
+        <Route path='/searchResult' element={<SearchResult />}></Route>
       </Routes>
     </Router>
   );

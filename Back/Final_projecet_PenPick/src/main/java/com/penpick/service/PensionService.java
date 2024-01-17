@@ -17,28 +17,33 @@ public class PensionService {
 	private PensionRepository pensionRepository;
 	
 	//펜션 이름 조회
-	public Pensions PensionNameList(String name){
-		Pensions pension = pensionRepository.findByName(name);
+	public List<Pensions> PensionNameList(String name){
+		List<Pensions> pension = pensionRepository.findByName(name);
 		if(pension == null) {
 			throw new EntityNotFoundException("데이터가 엄서용~~"+name);
 		}
 		return pension;
 	}
 	
-//	//펜션 지역 조회
-//	public List<Pensions> PensionAddressList(String PensionAddress){
-//		return pensionRepository.findByAddress(PensionAddress);
-//	}
-//	
-//	
-//	public List<Pensions> getAllPensionList(){
-//		return pensionRepository.findAll();
-//	}
-//	
-//	//펜션 이름이나 지역 조회
-//	public List<Pensions> PensionList(String SearchWord1, String SearchWord2){
-//		return pensionRepository.findByNameOrAddress(SearchWord1, SearchWord2);
-//	}
+	//펜션 지역 조회
+	public List<Pensions> PensionAddressList(String address){
+		List<Pensions> pension = pensionRepository.findByAddressContaining(address);
+		if(pension == null) {
+			throw new EntityNotFoundException("데이터가 엄서용~~"+address);
+		}
+		return pensionRepository.findByAddressContaining(address);
+	}
+	
+	//펜션 통합 검색
+	public List<Pensions> PensionList(String term){
+		return pensionRepository.findByNameOrAddressContaining(term);
+	}
+	
+	
+	public List<Pensions> getAllPensionList(){
+		return pensionRepository.findAll();
+	}
+	
 
 	
 }

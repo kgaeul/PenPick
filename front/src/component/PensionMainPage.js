@@ -21,34 +21,44 @@ import pensionImg2 from '../img/꽃지화이트펜션_2_공공3유형.jpg';
 import pensionImg3 from '../img/이른아침호숫가펜션_3_공공3유형.jpg';
 import pensionImg4 from '../img/이른아침호숫가펜션_5_공공3유형.jpg';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import SearchResult from './SearchResult';
+import PensionList from '../component/PensionList';
 
 function PensionMainPage() {
   const [name, SetName] = useState('');
   const [address, setAddress] = useState('');
-
-  const onSubmit = async () => {
-    window.location.href = '/search/' + name;
-  };
-
   // 검색어
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
   const [searchResult, setSearchResult] = useState([]);
-
+  // 검색 후 페이지 이동
+  const navigate = useNavigate();
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/penpick/search?name=${searchTerm}`
+        `http://localhost:8080/penpick/searchAll`,
+        {
+          params: {
+            term: searchTerm,
+          },
+        }
       );
-      console.log(response.data);
 
       const responseData = Array.isArray(response.data)
         ? response.data
         : [response.data];
 
       setSearchResult(responseData);
+      if (responseData.length > 0) {
+        console.log('Search successful. /searchResult:', responseData);
+
+        navigate('/pensionsearch');
+      } else {
+        console.log('not search results found');
+      }
     } catch (error) {
-      console.error('Error searching users:', error);
+      console.error('Error searching information:', error);
       setSearchResult([]);
     }
   };
@@ -77,6 +87,7 @@ function PensionMainPage() {
             <div id='SearchFormBar'></div>
             {/* 지역입력칸 */}
             <input
+              type='text'
               id='input1'
               className='form-control col-md-3'
               placeholder='펜션을 입력하세요'
@@ -98,13 +109,27 @@ function PensionMainPage() {
             /> */}
 
             {/* 펜션 검색버튼 */}
+            {/*<button onClick={() => navigate('/searchResult')}>검색</button>*/}
             <button
-              id='SearchButton'
-              className='btn  col-md-3'
-              onClick={handleSearch}
+              id='searchButton'
+              className='btn col-md-3'
+              onClick={(e) => {
+                {
+                  /*button search 에서 버튼 검색을 누르고
+              백엔드에서 확인하기 전에 새로고침되는 현상이 발생
+              지연시킨다음에 검색하도록 실행한 것 
+              프론트엔드에서 
+               e.preventDefault(); 문제로 페이지넘김이 안될시
+               찾아보라고 얘기할게요.
+              */
+                }
+                e.preventDefault();
+                handleSearch();
+              }}
             >
-              검색
+              search
             </button>
+            <PensionList searchResult={searchResult} />
           </form>
         </div>
       </div>
@@ -119,7 +144,7 @@ function PensionMainPage() {
           </div>
         </a>
       </div>
-      <a href='search'>펜션 목록</a>
+      <a href='pensionsearch'>펜션 목록</a>
 
       <div id='PopularPensionList'>
         <span id='PopularPensionTitle'>인기펜션 </span>

@@ -8,6 +8,44 @@
   margin-top: 10px;
 }
 
+/* 펜션 검색창 */
+#PensionInput {
+  background-color: rgb(242, 242, 242);
+  border: none;
+  height: 40px;
+  width: 140px;
+  margin-top: 4px;
+}
+#PensionInputNumber {
+  background-color: rgb(242, 242, 242);
+  border: none;
+  height: 40px;
+  width: 100px;
+  margin-top: 4px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(242, 242, 242) inset !important;
+  -webkit-text-fill-color: rgb(19, 18, 18) !important;
+}
+
+/* 인원수 input창 */
+#PensionInputNumber {
+  width: 60px;
+}
+
+/* 검색 버튼 */
+#PensionSearchButton {
+  margin-top: -3px;
+  border: none;
+  background-color: rgb(242, 242, 242);
+}
+
 #container {
   width: 1400px;
   margin: auto;
