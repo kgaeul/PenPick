@@ -8,13 +8,13 @@ import com.penpick.vo.Pensions;
 
 public interface PensionRepository extends JpaRepository<Pensions, Integer>{
 	
-//	@Query("SELECT*FROM PENSIONS WHERE NAME =? OR ADDRESS=?")
 	
-	List<Pensions> findByNameOrAddress(String SearchWord1, String SearchWord2);
+	Pensions findByName(String name);
 	
-	List<Pensions> findByName(String name);
+//	List<Pensions> findByAddress(String PensionAddress);
+//	
+//	List<Pensions> findByNameOrAddress(String SearchWord1, String SearchWord2);
 	
-	List<Pensions> findByAddress(String PensionAddress);
 	
 	
 

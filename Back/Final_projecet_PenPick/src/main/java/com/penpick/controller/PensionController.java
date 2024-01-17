@@ -20,24 +20,27 @@ public class PensionController {
 	@Autowired
 	private PensionService pensionService;
 	
-	@GetMapping("/pensionSearchList")
-	public List<Pensions> PensionNameAndAddressList(@RequestParam String SearchWord1,@RequestParam String SearchWord2) {
-		return pensionService.PensionList(SearchWord1, SearchWord2);
-	}
 	
 	@GetMapping("/search")
-	public List<Pensions>  PensionNameList(@RequestParam String name) {
+	public Pensions  PensionNameList(@RequestParam String name) {
 		return pensionService.PensionNameList(name);
 	}
-	
-	@GetMapping("/pensionAddressList")
-	public List<Pensions> PensionAddressList(@RequestParam String PensionAddress) {
-		return pensionService.PensionAddressList(PensionAddress);
-	}
 
-	@GetMapping("/pensionList")
-	public List<Pensions> getAllPensionList(){
-		return pensionService.getAllPensionList();
-	}
+		
+//	@GetMapping("/pensionSearchList")
+//	public List<Pensions> PensionNameAndAddressList(@RequestParam String SearchWord1,@RequestParam String SearchWord2) {
+//		return pensionService.PensionList(SearchWord1, SearchWord2);
+//	}
+//	
+//	
+//	@GetMapping("/pensionAddressList")
+//	public List<Pensions> PensionAddressList(@RequestParam String PensionAddress) {
+//		return pensionService.PensionAddressList(PensionAddress);
+//	}
+//
+//	@GetMapping("/pensionList")
+//	public List<Pensions> getAllPensionList(){
+//		return pensionService.getAllPensionList();
+//	}
 	
 }

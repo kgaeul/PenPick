@@ -25,7 +25,7 @@ const UserSearchComponent = () => {
     <div>
       <input
         type='text'
-        placeholder='Enter email to search'
+        placeholder='펜션을 검색해주세요'
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
