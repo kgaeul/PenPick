@@ -21,17 +21,15 @@ public class PensionController {
 	private PensionService pensionService;
 	
 	
-	@GetMapping("/search")
+	@GetMapping("/penpick/search")
 	public Pensions  PensionNameList(@RequestParam String name) {
 		return pensionService.PensionNameList(name);
 	}
-
 		
 //	@GetMapping("/pensionSearchList")
 //	public List<Pensions> PensionNameAndAddressList(@RequestParam String SearchWord1,@RequestParam String SearchWord2) {
 //		return pensionService.PensionList(SearchWord1, SearchWord2);
 //	}
-//	
 //	
 //	@GetMapping("/pensionAddressList")
 //	public List<Pensions> PensionAddressList(@RequestParam String PensionAddress) {

@@ -5,6 +5,7 @@ import FormImg from '../img/파란집.png';
 import React, { useState } from 'react';
 import CartImg from '../img/장바구니.png';
 import Pagination from 'react-js-pagination';
+import axios from 'axios';
 import {
   Button,
   Container,

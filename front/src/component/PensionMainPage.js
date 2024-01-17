@@ -30,6 +30,29 @@ function PensionMainPage() {
     window.location.href = '/search/' + name;
   };
 
+  // 검색어
+  const [searchTerm, setSearchTerm] = useState('');
+  // 검색결과
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/penpick/search?name=${searchTerm}`
+      );
+      console.log(response.data);
+
+      const responseData = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
+
+      setSearchResult(responseData);
+    } catch (error) {
+      console.error('Error searching users:', error);
+      setSearchResult([]);
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -57,9 +80,8 @@ function PensionMainPage() {
               id='input1'
               className='form-control col-md-3'
               placeholder='펜션을 입력하세요'
-              onChange={(e) => {
-                SetName(e.target.value);
-              }}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             {/* 날짜 검색창 */}
             {/* <input
@@ -79,9 +101,7 @@ function PensionMainPage() {
             <button
               id='SearchButton'
               className='btn  col-md-3'
-              onClick={() => {
-                onSubmit();
-              }}
+              onClick={handleSearch}
             >
               검색
             </button>

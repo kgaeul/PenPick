@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import PensionMainPage from './component/PensionMainPage';
 import LinkList from './component/LinkList';
 import Home from './component/Home';
-import SearchPension from './component/SearchPension';
+import SearchHeader from './component/SearchHeader';
+import PensionList from './component/PensionList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SearchPension />
+    <PensionList />
   </React.StrictMode>
 );
 
