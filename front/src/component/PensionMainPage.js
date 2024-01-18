@@ -163,9 +163,23 @@ function PensionMainPage() {
       <div id='LocationList'>
         <h5> 전체지역</h5>
         <div className='row'>
-          <a className='col-md-2' id='location' href='PensionDetailLink'>
-            경기도
-          </a>
+          <div>
+            <input
+              type='hidden'
+              value='경기'
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button
+              className='col-md-2'
+              id='location'
+              onClick={(e) => {
+                e.preventDefault();
+                handleSearch();
+              }}
+            >
+              경기도
+            </button>
+          </div>
           <a className='col-md-2' id='location' href='PensionDetailLink'>
             인천광역시
           </a>

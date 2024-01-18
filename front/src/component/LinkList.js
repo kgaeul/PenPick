@@ -10,6 +10,7 @@ import EventPage from '../component/EventPage';
 import PensionDetailLink from '../component/PensionDetailLink';
 import PensionMap from './PensionMap';
 import SearchResult from '../component/SearchResult';
+import GameLand from './GameLand';
 
 function Link() {
   return (
@@ -38,6 +39,8 @@ function Link() {
         <Route path='/PesionMap' element={<PensionMap />}></Route>
         {/* 검색 결과 */}
         <Route path='/searchResult' element={<SearchResult />}></Route>
+        {/* 게임랜드 링크 */}
+        <Route path='/Gameland' element={<GameLand />}></Route>
       </Routes>
     </Router>
   );
