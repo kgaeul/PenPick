@@ -25,8 +25,6 @@ function PensionList() {
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
   const [searchResult2, setSearchResult2] = useState([]);
-  //검색 인원
-  const [searchHeadCount, setsearchHeadCount] = useState();
 
   const location = useLocation();
   const inputValue = location.state?.searchTerm || '';
@@ -78,7 +76,6 @@ function PensionList() {
         {
           params: {
             term: searchTerm,
-            person: searchHeadCount,
           },
         }
       );
