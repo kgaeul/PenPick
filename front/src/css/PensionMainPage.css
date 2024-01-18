@@ -1,3 +1,5 @@
+/* 메인페이지 전체 */
+
 /*PenPick 메인페이지 이미지*/
 #BannerImg1 {
   background: url('../img/메인커버사진2.jpg') center no-repeat;
@@ -205,7 +207,7 @@
 }
 
 /*PenPick 검색창의 검색버튼*/
-#SearchButton {
+#MainsearchButton {
   width: 120px;
   background-color: rgb(0, 122, 243);
   color: white;

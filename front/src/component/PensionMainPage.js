@@ -28,6 +28,8 @@ import PensionList from '../component/PensionList';
 function PensionMainPage() {
   const [name, SetName] = useState('');
   const [address, setAddress] = useState('');
+  // 지역 검색 기본값 설정 후 추후 들어오는 지역값으로 변경
+  const [areaValue, setAreaValue] = useState('경기');
   // 검색어
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
@@ -37,9 +39,18 @@ function PensionMainPage() {
   const handleSearch = () => {
     navigate('/pensionsearch', { state: { searchTerm } });
   };
-
+  const handleLocationButton = (location) => {
+    //location update
+    setAreaValue(location);
+    //searchTerm Update required
+    setSearchTerm(location === '경기도' ? '경기' : location);
+    console.log(setSearchTerm(location === '경기도' ? '경기' : location));
+    //setSearchTerm(`location:${location}`);
+    //start Search
+    handleSearch();
+  };
   return (
-    <div>
+    <div id='mainpageContainer'>
       <Header />
       <div id='BannerImg1'>
         {/* 메인 문구 */}
@@ -70,34 +81,24 @@ function PensionMainPage() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             {/* 날짜 검색창 */}
-            {/* <input
+            <input
               id='input3'
               className='form-control col-md-3'
               type='date'
               placeholder='날짜'
-            /> */}
+            />
             {/* 인원입력칸 */}
-            {/* <input
+            <input
               id='input2'
               className='form-control col-md-3'
               placeholder='인원 입력하세요'
-            /> */}
-
+            />
             {/* 펜션 검색버튼 */}
-            {/*<button onClick={() => navigate('/searchResult')}>검색</button>*/}
+            {/* <button onClick={() => navigate('/searchResult')}>검색</button> */}
             <button
-              id='searchButton'
+              id='MainsearchButton'
               className='btn col-md-3'
               onClick={(e) => {
-                {
-                  /*button search 에서 버튼 검색을 누르고
-              백엔드에서 확인하기 전에 새로고침되는 현상이 발생
-              지연시킨다음에 검색하도록 실행한 것 
-              프론트엔드에서 
-               e.preventDefault(); 문제로 페이지넘김이 안될시
-               찾아보라고 얘기할게요.
-              */
-                }
                 e.preventDefault();
                 handleSearch();
               }}
@@ -166,15 +167,17 @@ function PensionMainPage() {
           <div>
             <input
               type='hidden'
-              value='경기'
-              onChange={(e) => setSearchTerm(e.target.value)}
+              //value='경기'
+              value={areaValue}
+              onChange={(e) => setAreaValue(e.target.value)}
             />
             <button
               className='col-md-2'
               id='location'
               onClick={(e) => {
                 e.preventDefault();
-                handleSearch();
+                //handleSearch();
+                handleLocationButton('경기도');
               }}
             >
               경기도

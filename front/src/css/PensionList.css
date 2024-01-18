@@ -54,6 +54,7 @@ input:-webkit-autofill:active {
 
 #firstBox {
   width: 400px;
+  margin-top: 40px;
 }
 
 /* 검색필터 */
@@ -68,7 +69,6 @@ input:-webkit-autofill:active {
 /* 매진숙소 제외 필터링 */
 #filterException {
   margin-left: 10px;
-  position: relative;
   top: -1.5px;
   font-size: 14px;
   font-weight: 600;

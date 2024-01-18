@@ -25,7 +25,8 @@ function PensionList() {
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
   const [searchResult2, setSearchResult2] = useState([]);
-  // const [newInput, setNewInput] = useState();
+  //검색 인원
+  const [searchHeadCount, setsearchHeadCount] = useState();
 
   const location = useLocation();
   const inputValue = location.state?.searchTerm || '';
@@ -34,10 +35,17 @@ function PensionList() {
   useEffect(() => {
     setSearchTerm(inputValue);
   }, [inputValue]);
-
+  /*
   useEffect(() => {
     handleSearch();
   });
+*/
+  //빈 값일 때는 새로고침 하지 않는다고 넣어둠
+  useEffect(() => {
+    if (searchTerm !== '') {
+      handleSearch();
+    }
+  }, [searchTerm]);
 
   const handleSearch = async () => {
     try {
@@ -70,6 +78,7 @@ function PensionList() {
         {
           params: {
             term: searchTerm,
+            person: searchHeadCount,
           },
         }
       );
@@ -89,48 +98,125 @@ function PensionList() {
   return (
     <div id='AllContain'>
       <div id='HeaderBannerImg'>
-        <div id='HeaderLogin_SignUp_Menu'>
-          <a id='HeaderCartListLink' href='/CartList'>
-            <img id='HeaderCartImg' src={CartImg} alt='장바구니'></img>
-          </a>
-          <a id='HeaderLogin' href='/Login'>
-            로그인
-          </a>
-          <a id='HeaderSignUp' href='/SignUp'>
-            회원가입
-          </a>
-        </div>
-        {/* 메인페이지 카테고리 */}
-        <div id='HeaderBannerLink'>
-          <a href='/' id='HeaderMainLink'>
-            <img id='HeaderPenPickImg' src={PenPickLogo} alt='펜픽로고'></img>
-          </a>
-          <form id='PensionSearchForm'>
-            <input
-              id='PensionInput'
-              type='text'
-              placeholder='펜션을 입력하세요'
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            {/* <span id='InputBar'>|</span>
-            <img src={Calendar} id='Calendar' alt='Calendar' />
-            <input id='PensionInput' type='text' />
+        <div id='PensionListCenterBox'>
+          <nav id='HeaderNav' class='navbar navbar-expand-lg '>
+            <div class='container-fluid'>
+              <button
+                class='navbar-toggler'
+                type='button'
+                data-bs-toggle='collapse'
+                data-bs-target='#navbarSupportedContent'
+                aria-controls='navbarSupportedContent'
+                aria-expanded='false'
+                aria-label='Toggle navigation'
+              >
+                <span class='navbar-toggler-icon'></span>
+              </button>
+              <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                  <a
+                    class='nav-link active'
+                    aria-current='page'
+                    id='HeaderQnALink'
+                    href='/QnA'
+                  >
+                    고객센터
+                  </a>
+                  <a
+                    class='nav-link active'
+                    aria-current='page'
+                    id='HeaderEventLink'
+                    href='/EventPage'
+                  >
+                    이벤트
+                  </a>
+                  <li class='nav-item'>
+                    <a
+                      id='HeaderCartImg'
+                      class='nav-link active'
+                      aria-current='page'
+                      href='/CartList'
+                    >
+                      장바구니
+                    </a>
+                  </li>
 
-            <span id='InputBar'>|</span>
-            <img id='UserImg' src={UserImg} alt='사용자' />
-            <input id='PensionInputNumber' type='text' /> */}
-            <button
-              id='PensionSearchButton'
-              type='submit'
-              onClick={handleSearch2}
-            >
-              <img id='PensionSearchImg' src={SearchButton} alt='돋보기' />
-            </button>
-          </form>
+                  <li class='nav-item dropdown'>
+                    <a
+                      class='nav-link dropdown-toggle'
+                      href='/'
+                      role='button'
+                      data-bs-toggle='dropdown'
+                      aria-expanded='false'
+                    >
+                      <img id='HeaderUserImg' src={UserImg} alt='사용자' />
+                    </a>
+                    <ul class='dropdown-menu' id='HeaderDropdownBox'>
+                      <li>
+                        <a
+                          id='HeaderDropDownLink'
+                          class='dropdown-item'
+                          href='/'
+                        >
+                          로그인/회원가입
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          id='HeaderDropDownLink'
+                          class='dropdown-item'
+                          href='#'
+                        >
+                          비회원 예약조회
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class='dropdown-item'
+                          id='HeaderDropDownLinkMYPAGE'
+                          href='/Mypage'
+                        >
+                          마이페이지
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          {/* 메인페이지 카테고리 */}
+          <div id='HeaderBannerLink'>
+            <a href='/' id='HeaderMainLink'>
+              <img id='HeaderPenPickImg' src={PenPickLogo} alt='펜픽로고'></img>
+            </a>
+            <form id='PensionSearchForm'>
+              <input
+                id='PensionInput'
+                type='text'
+                placeholder='펜션을 입력하세요'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {/* <span id='InputBar'>|</span>
+              <img src={Calendar} id='Calendar' alt='Calendar' />
+              <input id='PensionInput' type='text' />
+              <span id='InputBar'>|</span>
+              <img id='UserImg' src={UserImg} alt='사용자' />
+              <input id='PensionInputNumber' type='text' /> */}
+              <button
+                id='PensionSearchButton'
+                type='submit'
+                onClick={handleSearch2}
+              >
+                <img id='PensionSearchImg' src={SearchButton} alt='돋보기' />
+              </button>
+            </form>
+          </div>
         </div>
+        <hr></hr>
       </div>
-      <hr></hr>
+
       <div id='container' className='row'>
         <div id='firstBox' className='col-md-4'>
           <h3>{searchTerm} 검색 결과 </h3>

@@ -7,7 +7,7 @@ function GameLand() {
       <Header />
       <div id='container'>
         <div className='row'>
-          <div className='col-md-3'>
+          <div className='col-md-3' id='EventCategory'>
             <a href='EventPage'>이벤트</a>
             <br></br>
             <a href='Gameland'>게임랜드</a>
