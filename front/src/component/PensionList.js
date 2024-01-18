@@ -20,13 +20,49 @@ import SearchButton from '../img/돋보기.png';
 import CartImg from '../img/장바구니.png';
 import { useLocation } from 'react-router-dom';
 
-function PensionList({ searchResult }) {
+function PensionList() {
   // 검색어
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
   const [searchResult2, setSearchResult2] = useState([]);
+  // const [newInput, setNewInput] = useState();
 
-  const handleSearch = async (e) => {
+  const location = useLocation();
+  const inputValue = location.state?.searchTerm || '';
+
+  //화면 렌더링한 다음 setNuwInput를 호출.. 아니면 무슨 무한루프 뭐시기라는데 잘 모르겟음
+  useEffect(() => {
+    setSearchTerm(inputValue);
+  }, [inputValue]);
+
+  useEffect(() => {
+    handleSearch();
+  });
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/penpick/searchAll`,
+        {
+          params: {
+            term: searchTerm,
+          },
+        }
+      );
+      console.log(response.data);
+
+      const responseData = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
+
+      setSearchResult2(responseData);
+    } catch (error) {
+      console.error('Error searching users:', error);
+      setSearchResult2([]);
+    }
+  };
+
+  const handleSearch2 = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(
@@ -87,7 +123,7 @@ function PensionList({ searchResult }) {
             <button
               id='PensionSearchButton'
               type='submit'
-              onClick={handleSearch}
+              onClick={handleSearch2}
             >
               <img id='PensionSearchImg' src={SearchButton} alt='돋보기' />
             </button>
@@ -97,7 +133,7 @@ function PensionList({ searchResult }) {
       <hr></hr>
       <div id='container' className='row'>
         <div id='firstBox' className='col-md-4'>
-          <h3>검색 목록</h3>
+          <h3>{searchTerm} 검색 결과 </h3>
           <a href='PesionMap'>
             <img src={MapImg} alt='지도' id='MapImg'></img>
           </a>
@@ -147,15 +183,6 @@ function PensionList({ searchResult }) {
               </div>
             ))}
           </ul>
-          <div>
-            <p>
-              {searchResult.map((pension) => (
-                <div key={pension.id}>
-                  <p>{pension.name}</p>
-                </div>
-              ))}
-            </p>
-          </div>
         </div>
       </div>
     </div>

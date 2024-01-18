@@ -34,33 +34,8 @@ function PensionMainPage() {
   const [searchResult, setSearchResult] = useState([]);
   // 검색 후 페이지 이동
   const navigate = useNavigate();
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/penpick/searchAll`,
-        {
-          params: {
-            term: searchTerm,
-          },
-        }
-      );
-
-      const responseData = Array.isArray(response.data)
-        ? response.data
-        : [response.data];
-
-      setSearchResult(responseData);
-      if (responseData.length > 0) {
-        console.log('Search successful. /searchResult:', responseData);
-
-        navigate('/pensionsearch');
-      } else {
-        console.log('not search results found');
-      }
-    } catch (error) {
-      console.error('Error searching information:', error);
-      setSearchResult([]);
-    }
+  const handleSearch = () => {
+    navigate('/pensionsearch', { state: { searchTerm } });
   };
 
   return (
@@ -129,7 +104,6 @@ function PensionMainPage() {
             >
               search
             </button>
-            <PensionList searchResult={searchResult} />
           </form>
         </div>
       </div>
