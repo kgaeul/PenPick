@@ -21,34 +21,41 @@ import CartImg from '../img/장바구니.png';
 import { useLocation } from 'react-router-dom';
 
 function PensionList() {
-  // 검색어
   const [searchTerm, setSearchTerm] = useState('');
-  // 검색결과
   const [searchResult2, setSearchResult2] = useState([]);
-
   const location = useLocation();
   const inputValue = location.state?.searchTerm || '';
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedRegion = urlParams.get('region');
 
-  //화면 렌더링한 다음 setNuwInput를 호출.. 아니면 무슨 무한루프 뭐시기라는데 잘 모르겟음
+
+  //렌더링 되자마자 지역이름 setSearch에 저장!!!!
   useEffect(() => {
-    setSearchTerm(inputValue);
-  }, [inputValue]);
-  /*
-  useEffect(() => {
-    handleSearch();
-  });
-*/
-  //빈 값일 때는 새로고침 하지 않는다고 넣어둠
+    setSearchTerm(selectedRegion);
+  }, [selectedRegion]); 
+
+//렌더링 되자마자 검색값 setSearch에 저장!!!!
+  useEffect(()=>{
+    if(inputValue!==null&&selectedRegion===null){
+      setSearchTerm(inputValue);
+    }
+  
+  },[searchTerm])
+
+
+  //searchTerm 널 값 아니면서 지역이름이 null값일떄!!! 자동으로 검색 메서드 실행
   useEffect(() => {
     if (searchTerm !== '') {
       handleSearch();
+    }else{
+      console.log('검색값이 없습니다.')
     }
   }, [searchTerm]);
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/penpick/searchAll`,
+        `http://localhost:8081/penpick/searchAll`,
         {
           params: {
             term: searchTerm,
@@ -70,26 +77,7 @@ function PensionList() {
 
   const handleSearch2 = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/penpick/searchAll`,
-        {
-          params: {
-            term: searchTerm,
-          },
-        }
-      );
-      console.log(response.data);
-
-      const responseData = Array.isArray(response.data)
-        ? response.data
-        : [response.data];
-
-      setSearchResult2(responseData);
-    } catch (error) {
-      console.error('Error searching users:', error);
-      setSearchResult2([]);
-    }
+    handleSearch();
   };
 
   return (

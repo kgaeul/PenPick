@@ -20,6 +20,10 @@ import pensionImg1 from '../img/JS애견풀빌라_2_공공3유형.jpg';
 import pensionImg2 from '../img/꽃지화이트펜션_2_공공3유형.jpg';
 import pensionImg3 from '../img/이른아침호숫가펜션_3_공공3유형.jpg';
 import pensionImg4 from '../img/이른아침호숫가펜션_5_공공3유형.jpg';
+import BestLocationImg1 from '../img/가평.jpg';
+import BestLocationImg2 from '../img/강릉.jpg';
+import BestLocationImg3 from '../img/속초.jpg';
+import BestLocationImg4 from '../img/포천.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
@@ -27,9 +31,6 @@ import PensionList from '../component/PensionList';
 
 function PensionMainPage() {
   const [name, SetName] = useState('');
-  const [address, setAddress] = useState('');
-  // 지역 검색 기본값 설정 후 추후 들어오는 지역값으로 변경
-  const [areaValue, setAreaValue] = useState('경기');
   // 검색어
   const [searchTerm, setSearchTerm] = useState('');
   // 검색결과
@@ -37,18 +38,16 @@ function PensionMainPage() {
   // 검색 후 페이지 이동
   const navigate = useNavigate();
   const handleSearch = () => {
-    navigate('/pensionsearch', { state: { searchTerm } });
+    navigate('/PensionList', { state: { searchTerm } });
   };
-  const handleLocationButton = (location) => {
-    //location update
-    setAreaValue(location);
-    //searchTerm Update required
-    setSearchTerm(location === '경기도' ? '경기' : location);
-    console.log(setSearchTerm(location === '경기도' ? '경기' : location));
-    //setSearchTerm(`location:${location}`);
-    //start Search
-    handleSearch();
+
+  //지역 이름 넘기는 함수
+  const selectRegionAndNavigate = (region) => {
+    const selectedRegion = region;
+  window.location.href = `/PensionList?region=${selectedRegion}`;
   };
+
+  
   return (
     <div id='mainpageContainer'>
       <Header />
@@ -119,7 +118,6 @@ function PensionMainPage() {
           </div>
         </a>
       </div>
-      <a href='pensionsearch'>펜션 목록</a>
 
       <div id='PopularPensionList'>
         <span id='PopularPensionTitle'>인기펜션 </span>
@@ -146,89 +144,43 @@ function PensionMainPage() {
         <span id='description'>최근 한달 간 이용내역 기준</span>
         <br />
         <div id='LinkImgBox'>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg1} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg2} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg3} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg4} alt='pensionImg'></img>
-          </a>
+        <button id='MainPopularLocationButton' className='col-md-2' onClick={() => selectRegionAndNavigate('가평')}>
+          <img id='pensionImg' src={BestLocationImg1} alt='pensionImg'></img><h5 id='MainPopularLocationName'>가평</h5></button>
+        <button id='MainPopularLocationButton' className='col-md-2' onClick={() => selectRegionAndNavigate('포천')}>
+          <img id='pensionImg' src={BestLocationImg4} alt='pensionImg'></img><h5 id='MainPopularLocationName'>포천</h5></button>
+        <button id='MainPopularLocationButton' className='col-md-2' onClick={() => selectRegionAndNavigate('속초')}>
+          <img id='pensionImg' src={BestLocationImg3} alt='pensionImg'></img><h5 id='MainPopularLocationName'>속초</h5></button>
+        <button id='MainPopularLocationButton' className='col-md-2' onClick={() => selectRegionAndNavigate('강릉')}>
+          <img id='pensionImg' src={BestLocationImg2} alt='pensionImg'></img><h5 id='MainPopularLocationName'>강릉</h5></button>
         </div>
       </div>
 
+    
       <div id='LocationList'>
-        <h5> 전체지역</h5>
-        <div className='row'>
-          <div>
-            <input
-              type='hidden'
-              //value='경기'
-              value={areaValue}
-              onChange={(e) => setAreaValue(e.target.value)}
-            />
-            <button
-              className='col-md-2'
-              id='location'
-              onClick={(e) => {
-                e.preventDefault();
-                //handleSearch();
-                handleLocationButton('경기도');
-              }}
-            >
-              경기도
-            </button>
-          </div>
-          <a className='col-md-2' id='location' href='PensionDetailLink'>
-            인천광역시
-          </a>
-          <a className='col-md-2' id='location' href='PensionDetailLink'>
-            강원특별자치도
-          </a>
-          <a className='col-md-2' id='location' href='PensionDetailLink'>
-            충청북도
-          </a>
-          <a className='col-md-2' id='location' href='PensionDetailLink'>
-            충청남도
-          </a>
+        <div id='BigLocationList'>
+        <span id='PopularLocationTitle'> 전체지역 </span>
+        <span id='BigLocationListdescription'>오늘은 어느 곳으로 떠나볼까요?</span>
         </div>
-        <div className='row'>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            대전광역시
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            전라북도
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            전라남도
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            광주광역시
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            경상북도
-          </a>
+        <div id='MainLocationLinkBox' className='row'>
+          <button id='MainLocationButton' className='col-md-2' onClick={() => selectRegionAndNavigate('경기')}>경기도</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('인천')}>인천광역시</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('강원')}>강원특별자치도</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('충청북도')}>충청북도</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('충청북도')}>충청북도</button>
         </div>
-        <div className='row'>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            경상남도
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            대구광역시
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            울산광역시
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            부산광역시
-          </a>
-          <a className='col-md-3' id='location' href='PensionDetailLink'>
-            제주특별자치도
-          </a>
+        <div id='MainLocationLinkBox' className='row'>
+          <button id='MainLocationButton'  className='col-md-3' onClick={() => selectRegionAndNavigate('대전')}>대전광역시</button>
+          <button id='MainLocationButton'  className='col-md-3' onClick={() => selectRegionAndNavigate('전라북도')}>전라북도</button>
+          <button id='MainLocationButton'  className='col-md-3' onClick={() => selectRegionAndNavigate('전라남도')}>전라남도</button>
+          <button id='MainLocationButton'  className='col-md-3' onClick={() => selectRegionAndNavigate('광주광역시')}>광주광역시</button>
+          <button id='MainLocationButton'  className='col-md-3' onClick={() => selectRegionAndNavigate('경상북도')}>경상북도</button>
+        </div>
+        <div id='MainLocationLinkBox' className='row'>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('경상남도')}>경상남도</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('대구광역시')}>대구광역시</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('울산광역시')}>울산광역시</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('부산광역시')}>부산광역시</button>
+          <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('제주특별자치도')}>제주특별자치도</button>
         </div>
       </div>
     </div>

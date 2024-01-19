@@ -15,7 +15,7 @@ import com.penpick.vo.Pensions;
 
 @RequestMapping("/penpick")
 @RestController
-@CrossOrigin(origins="http://localhost:3000",allowCredentials="true")
+@CrossOrigin(origins="http://localhost:3000", allowCredentials="true")
 public class PensionController {
 
 	@Autowired

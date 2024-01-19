@@ -17,9 +17,9 @@ function EventPage() {
           </div>
           <div className='col-md-9' id='EventMain'>
             <h5>이벤트</h5>
-            <a id='EventContent' href='/'>
+            <p id='EventContent' href='/'>
               쿠폰 사용 방법
-            </a>
+            </p>
             <br />
             <a id='EventContent' href='/'>
               매일매일 선물이 쏟아진다! 출석체크 이벤트

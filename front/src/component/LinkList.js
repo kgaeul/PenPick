@@ -21,7 +21,7 @@ function Link() {
         {/*마이페이지 링크*/}
         <Route path='/Mypage' element={<Mypage />}></Route>
         {/*펜션목록 링크*/}
-        <Route path='/pensionsearch' element={<PensionList />}></Route>
+        <Route path='/PensionList' element={<PensionList />}></Route>
         {/*예약페이지 링크*/}
         <Route path='/Resevation' element={<Resevation />}></Route>
         {/*문의하기 링크*/}
