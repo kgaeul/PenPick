@@ -43,6 +43,8 @@ function PensionList() {
   },[searchTerm])
 
 
+
+
   //searchTerm 널 값 아니면서 지역이름이 null값일떄!!! 자동으로 검색 메서드 실행
   useEffect(() => {
     if (searchTerm !== '') {
@@ -199,7 +201,7 @@ function PensionList() {
             </form>
           </div>
         </div>
-        <hr></hr>
+        <hr id='PensionListHr'></hr>
       </div>
 
       <div id='container' className='row'>

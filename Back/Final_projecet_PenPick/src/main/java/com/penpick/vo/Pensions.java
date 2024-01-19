@@ -21,9 +21,9 @@ public class Pensions{
 	
 	private String address;
 	
-	private int latitude;
+	private double latitude;
 	
-	private int longitude;
+	private double longitude;
 	
 	private String introduction;
 	

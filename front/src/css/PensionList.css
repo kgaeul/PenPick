@@ -24,6 +24,12 @@
   margin-top: 4px;
 }
 
+/* 헤더부분 Hr */
+#PensionListHr{
+  margin: 1.1rem 0;
+  width: 100%;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

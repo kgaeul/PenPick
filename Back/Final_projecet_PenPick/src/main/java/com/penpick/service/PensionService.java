@@ -39,7 +39,7 @@ public class PensionService {
 		return pensionRepository.findByNameOrAddressContaining(term);
 	}
 	
-	
+	//펜션 전부가져오기
 	public List<Pensions> getAllPensionList(){
 		return pensionRepository.findAll();
 	}

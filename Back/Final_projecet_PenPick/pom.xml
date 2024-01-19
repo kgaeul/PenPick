@@ -60,6 +60,12 @@
 		    <artifactId>javax.inject</artifactId>
 		    <version>1</version>
 		</dependency>
+		 <dependency>
+        <groupId>com.oracle.database.jdbc</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>19.8.0.0</version> <!-- 오라클 JDBC 드라이버 버전에 맞게 변경 -->
+    </dependency>
+ 
 	</dependencies>
 
 	<build>

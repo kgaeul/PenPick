@@ -39,7 +39,7 @@ public class PensionController {
         }
     }
 	
-//모든 펜션 조회
+	//모든 펜션 조회
 	@GetMapping("/pensionList")
 	public List<Pensions> getAllPensionList(){
 		return pensionService.getAllPensionList();
