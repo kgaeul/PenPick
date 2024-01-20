@@ -74,22 +74,17 @@ const [pensionData,setPensionData]=useState([]);
           
       
       window.kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
-      window.kakao.maps.event.addListener(marker, 'dbclick', makeOutListener(infowindow));
         }
     
       // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
       function makeOverListener(map, marker, infowindow) {
         return function() {
-            infowindow.open(map, marker);
+          if(infowindow.getMap()){
+            infowindow.close();
+          }else{ infowindow.open(map, marker);}
         };
       }
 
-       // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-      function makeOutListener(infowindow) {
-        return function() {
-            infowindow.close();
-        };
-      }
       });
     };
   };

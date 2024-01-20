@@ -65,7 +65,10 @@
         <artifactId>ojdbc8</artifactId>
         <version>19.8.0.0</version> <!-- 오라클 JDBC 드라이버 버전에 맞게 변경 -->
     </dependency>
- 
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
 	</dependencies>
 
 	<build>

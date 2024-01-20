@@ -28,6 +28,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
 import PensionList from '../component/PensionList';
+import Chat from './Chat';
 
 function PensionMainPage() {
   const [name, SetName] = useState('');
@@ -183,6 +184,8 @@ function PensionMainPage() {
           <button id='MainLocationButton'  className='col-md-2' onClick={() => selectRegionAndNavigate('제주특별자치도')}>제주특별자치도</button>
         </div>
       </div>
+
+      <Chat />
     </div>
   );
 }

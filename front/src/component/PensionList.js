@@ -28,6 +28,8 @@ function PensionList() {
   const urlParams = new URLSearchParams(window.location.search);
   const selectedRegion = urlParams.get('region');
 
+  const [filter,setFilter] = useState([]);
+
 
   //렌더링 되자마자 지역이름 setSearch에 저장!!!!
   useEffect(() => {
@@ -226,7 +228,7 @@ function PensionList() {
               <hr id='hrfilter' />
               <div>
                 <h6 id='filterTitle'>공용시설</h6>
-                <button id='filterButton'>수영장</button>
+                <button id='filterButton' >수영장</button>
                 <button id='filterButton'>바베큐장</button>
                 <button id='filterButton'>공용샤워실</button>
                 <br />
