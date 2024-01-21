@@ -1,16 +1,16 @@
 package com.penpick.vo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
+import java.util.Map;
 
-@Entity
+import lombok.Data;
+import lombok.ToString;
+
 @Data
+@ToString
 public class ChatMessage {
 
-	@Id
-	private int id;
     private String content;
     private String sender;
+ 
 
 }

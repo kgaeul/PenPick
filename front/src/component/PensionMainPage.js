@@ -108,6 +108,10 @@ function PensionMainPage() {
           </form>
         </div>
       </div>
+
+
+      <a href='Chat'>채팅</a>
+
       {/* 이벤트 배너 */}
       <div id='Event'>
         <h5 id='EventTitle'>이벤트</h5>
@@ -185,7 +189,6 @@ function PensionMainPage() {
         </div>
       </div>
 
-      <Chat />
     </div>
   );
 }

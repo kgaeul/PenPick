@@ -11,6 +11,7 @@ import PensionDetailLink from '../component/PensionDetailLink';
 import PensionMap from './PensionMap';
 import SearchResult from '../component/SearchResult';
 import GameLand from './GameLand';
+import Chat from './Chat';
 
 function Link() {
   return (
@@ -41,6 +42,8 @@ function Link() {
         <Route path='/searchResult' element={<SearchResult />}></Route>
         {/* 게임랜드 링크 */}
         <Route path='/Gameland' element={<GameLand />}></Route>
+        {/* 채팅하기 */}
+        <Route path='/Chat' element={<Chat />}></Route>
       </Routes>
     </Router>
   );

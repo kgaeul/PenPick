@@ -1,10 +1,16 @@
 package com.penpick.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
+import org.springframework.messaging.converter.MessageConverter;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -28,8 +34,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // "/websocket" 경로를 통해 STOMP 엔드포인트를 등록하고, SockJS를 사용하도록 설정합니다.
         // SockJS는 WebSocket을 지원하지 않는 브라우저에 대한 대체 옵션을 제공합니다.
-        registry.addEndpoint("/websocket").withSockJS();
+        registry.addEndpoint("/websocket")
+        .setAllowedOrigins("http://localhost:3000")
+        .withSockJS();
 
         System.out.println("성공 2!");
     }
+    
 }

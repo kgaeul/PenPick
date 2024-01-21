@@ -17,31 +17,39 @@ const Chat = () => {
         // WebSocket 연결을 설정하는 함수
         const connect = () => {
             // WebSocket 통신을 위한 SockJS 객체 생성
-            const socket = new SockJS('/websocket');
+            const socket = new SockJS('http://localhost:8081/websocket');
             console.log('여기까지 됨');
             // WebSocket 연결 위에 Stomp 클라이언트 생성
             var stomp = Stomp.over(socket);
             console.log('여기까지도 됨');
-            // WebSocket 서버에 연결
-            stomp.connect({}, frame => {
-                console.log('연결됨: ' + frame);
-                // Stomp 클라이언트를 컴포넌트 상태에 설정
-                setStompClient(stomp);
-                stomp.activate()
-            });
+
+            
+              // WebSocket 연결 상태를 확인하여 연결이 안 되어 있다면 연결 시도
+            if (socket.readyState !== 1) {
+                stomp.connect({}, frame => {
+                    console.log('연결됨: ' + frame);
+                    setStompClient(stomp);
+                });
+            }
+
+            // 컴포넌트가 언마운트될 때 소켓 연결을 닫음
+            return () => {
+                socket.close();
+            };
+            
         };
+     
         // 컴포넌트가 마운트될 때 한 번만 실행되도록 하기 위해 빈 의존성 배열 사용
         connect();
-
+   
     }, []);
 
     const sendMessage = content => {
         if (stompClient) {
             // 내용과 송신자 정보를 포함한 메시지 객체 생성
-            const message = { content, sender: 'user' };
-    
             // 메시지를 '/app/chat' 목적지로 서버에 전송
-            stompClient.send('/app/websocket', {}, JSON.stringify(message));
+            stompClient.send('/app/websocket',{}, JSON.stringify({ content:content, sender: 'user' }));
+            console.log(JSON.stringify("JSON.stringify({ content, sender: 'user' }) :"+JSON.stringify({ content, sender: 'user' })));
         } else {
             console.error('Stomp client is not initialized.');
         }
@@ -53,7 +61,7 @@ const Chat = () => {
         stompClient.subscribe('/topic/messages', response => {
             // 받은 메시지를 파싱하고 상태에 추가
             const message = JSON.parse(response.body);
-            setMessages([...messages, message]);
+            setMessages(prevMessages => [...prevMessages, message]);
         });
     };
 
