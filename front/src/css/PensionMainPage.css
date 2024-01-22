@@ -243,19 +243,17 @@ a {
   border-radius: 15px;
 }
 
-#MainPopularLocationButton{
+#MainPopularLocationButton {
   background-color: white;
   border: none;
   margin-right: 100px;
 }
-
 
 /* 펜션 사진, 지역 사진 감싼 박스 */
 #LinkImgBox {
   text-align: center;
   margin-top: 20px;
 }
-
 
 /* 인기 펜션 인기 지역 타이틀 */
 #PopularPensionTitle,
@@ -265,12 +263,12 @@ a {
   margin-left: 10px;
 }
 
-#MainPopularLocationName{
-float: left;
-font-size: 17px;
-margin-top: 13px;
-font-weight: 600;
-margin-left: 8px;
+#MainPopularLocationName {
+  float: left;
+  font-size: 17px;
+  margin-top: 13px;
+  font-weight: 600;
+  margin-left: 8px;
 }
 
 /* 인기펜션 , 인기지역 설명 */
@@ -279,12 +277,11 @@ margin-left: 8px;
   font-weight: 100;
 }
 
-
 /* 지역 카테고리 */
-#MainLocationButton{
+#MainLocationButton {
   background-color: lightblue;
   border: none;
-  width:200px;
+  width: 200px;
   height: 60px;
   border-radius: 5px;
   margin-bottom: 30px;
@@ -292,17 +289,16 @@ margin-left: 8px;
 }
 
 /* 지역 카테고리2 */
-#MainLocationButton2{
+#MainLocationButton2 {
   background-color: lightblue;
   border: none;
-  width:200px;
+  width: 200px;
   height: 60px;
   border-radius: 5px;
   margin-bottom: 30px;
-
 }
 
-#MainLocationLinkBox{
+#MainLocationLinkBox {
   margin: auto;
   margin-bottom: 30px;
   text-align: center;
@@ -310,7 +306,7 @@ margin-left: 8px;
 }
 
 /* 지역링크 타이틀만 감싼박스 */
-#BigLocationList{
+#BigLocationList {
   padding-bottom: 20px;
   width: 1200px;
   margin: auto;
@@ -324,8 +320,35 @@ margin-left: 8px;
   margin-bottom: 300px;
 }
 
-#BigLocationListdescription{
+#BigLocationListdescription {
   font-size: 13px;
   font-weight: 100;
 }
 
+#ChatImg {
+  width: 60px;
+  border-radius: 50%;
+  padding: 7px;
+  background-color: white;
+  box-shadow: 0px 0px 10px gray;
+  position: fixed;
+  bottom: 100px;
+  right: 250px;
+}
+
+#mainContainer {
+  width: 1400px;
+  margin: auto;
+}
+
+/* 채팅방 */
+#messageBox {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#ChatContainer {
+  width: 1400px;
+  margin: auto;
+  margin-top: 100px;
+}

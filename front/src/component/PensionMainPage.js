@@ -109,200 +109,216 @@ function PensionMainPage() {
         </div>
       </div>
 
-      <a href='Chat'>
-        <img src={imgChat} alt='챗봇이미지' />
-        채팅
-      </a>
-
-      {/* 이벤트 배너 */}
-      <div id='Event'>
-        <h5 id='EventTitle'>이벤트</h5>
-        <a id='EventLink' href='/EventPage'>
-          <div id='EventImgBox'>
-            <img id='EventImg' src={EventImg} alt='이벤트이미지' />
-            <img id='EventImg' src={EventImg} alt='이벤트이미지' />
-            <img id='EventImg' src={EventImg} alt='이벤트이미지' />
-          </div>
+      <div id='mainContainer'>
+        <a href='Chat'>
+          <img id='ChatImg' src={imgChat} alt='챗봇이미지' />
         </a>
-      </div>
+        {/* 이벤트 배너 */}
+        <div id='Event'>
+          <h5 id='EventTitle'>이벤트</h5>
+          <a id='EventLink' href='/EventPage'>
+            <div id='EventImgBox'>
+              <img id='EventImg' src={EventImg} alt='이벤트이미지' />
+              <img id='EventImg' src={EventImg} alt='이벤트이미지' />
+              <img id='EventImg' src={EventImg} alt='이벤트이미지' />
+            </div>
+          </a>
+        </div>
 
-      <div id='PopularPensionList'>
-        <span id='PopularPensionTitle'>인기펜션 </span>
-        <span id='description'>최근 한달 간 이용내역 기준</span>
-        <br />
-        <div id='LinkImgBox'>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg1} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg2} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg3} alt='pensionImg'></img>
-          </a>
-          <a href='PensionDetailLink'>
-            <img id='pensionImg' src={pensionImg4} alt='pensionImg'></img>
-          </a>
+        <div id='PopularPensionList'>
+          <span id='PopularPensionTitle'>인기펜션 </span>
+          <span id='description'>최근 한달 간 이용내역 기준</span>
+          <br />
+          <div id='LinkImgBox'>
+            <a href='PensionDetailLink'>
+              <img id='pensionImg' src={pensionImg1} alt='pensionImg'></img>
+            </a>
+            <a href='PensionDetailLink'>
+              <img id='pensionImg' src={pensionImg2} alt='pensionImg'></img>
+            </a>
+            <a href='PensionDetailLink'>
+              <img id='pensionImg' src={pensionImg3} alt='pensionImg'></img>
+            </a>
+            <a href='PensionDetailLink'>
+              <img id='pensionImg' src={pensionImg4} alt='pensionImg'></img>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div id='PopularLocation'>
-        <span id='PopularLocationTitle'>인기지역 </span>
-        <span id='description'>최근 한달 간 이용내역 기준</span>
-        <br />
-        <div id='LinkImgBox'>
-          <button
-            id='MainPopularLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('가평')}
-          >
-            <img id='pensionImg' src={BestLocationImg1} alt='pensionImg'></img>
-            <h5 id='MainPopularLocationName'>가평</h5>
-          </button>
-          <button
-            id='MainPopularLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('포천')}
-          >
-            <img id='pensionImg' src={BestLocationImg4} alt='pensionImg'></img>
-            <h5 id='MainPopularLocationName'>포천</h5>
-          </button>
-          <button
-            id='MainPopularLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('속초')}
-          >
-            <img id='pensionImg' src={BestLocationImg3} alt='pensionImg'></img>
-            <h5 id='MainPopularLocationName'>속초</h5>
-          </button>
-          <button
-            id='MainPopularLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('강릉')}
-          >
-            <img id='pensionImg' src={BestLocationImg2} alt='pensionImg'></img>
-            <h5 id='MainPopularLocationName'>강릉</h5>
-          </button>
+        <div id='PopularLocation'>
+          <span id='PopularLocationTitle'>인기지역 </span>
+          <span id='description'>최근 한달 간 이용내역 기준</span>
+          <br />
+          <div id='LinkImgBox'>
+            <button
+              id='MainPopularLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('가평')}
+            >
+              <img
+                id='pensionImg'
+                src={BestLocationImg1}
+                alt='pensionImg'
+              ></img>
+              <h5 id='MainPopularLocationName'>가평</h5>
+            </button>
+            <button
+              id='MainPopularLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('포천')}
+            >
+              <img
+                id='pensionImg'
+                src={BestLocationImg4}
+                alt='pensionImg'
+              ></img>
+              <h5 id='MainPopularLocationName'>포천</h5>
+            </button>
+            <button
+              id='MainPopularLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('속초')}
+            >
+              <img
+                id='pensionImg'
+                src={BestLocationImg3}
+                alt='pensionImg'
+              ></img>
+              <h5 id='MainPopularLocationName'>속초</h5>
+            </button>
+            <button
+              id='MainPopularLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('강릉')}
+            >
+              <img
+                id='pensionImg'
+                src={BestLocationImg2}
+                alt='pensionImg'
+              ></img>
+              <h5 id='MainPopularLocationName'>강릉</h5>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div id='LocationList'>
-        <div id='BigLocationList'>
-          <span id='PopularLocationTitle'> 전체지역 </span>
-          <span id='BigLocationListdescription'>
-            오늘은 어느 곳으로 떠나볼까요?
-          </span>
-        </div>
-        <div id='MainLocationLinkBox' className='row'>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('경기')}
-          >
-            경기도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('인천')}
-          >
-            인천광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('강원')}
-          >
-            강원특별자치도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('충청북도')}
-          >
-            충청북도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('충청북도')}
-          >
-            충청북도
-          </button>
-        </div>
-        <div id='MainLocationLinkBox' className='row'>
-          <button
-            id='MainLocationButton'
-            className='col-md-3'
-            onClick={() => selectRegionAndNavigate('대전')}
-          >
-            대전광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-3'
-            onClick={() => selectRegionAndNavigate('전라북도')}
-          >
-            전라북도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-3'
-            onClick={() => selectRegionAndNavigate('전라남도')}
-          >
-            전라남도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-3'
-            onClick={() => selectRegionAndNavigate('광주광역시')}
-          >
-            광주광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-3'
-            onClick={() => selectRegionAndNavigate('경상북도')}
-          >
-            경상북도
-          </button>
-        </div>
-        <div id='MainLocationLinkBox' className='row'>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('경상남도')}
-          >
-            경상남도
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('대구광역시')}
-          >
-            대구광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('울산광역시')}
-          >
-            울산광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('부산광역시')}
-          >
-            부산광역시
-          </button>
-          <button
-            id='MainLocationButton'
-            className='col-md-2'
-            onClick={() => selectRegionAndNavigate('제주특별자치도')}
-          >
-            제주특별자치도
-          </button>
+        <div id='LocationList'>
+          <div id='BigLocationList'>
+            <span id='PopularLocationTitle'> 전체지역 </span>
+            <span id='BigLocationListdescription'>
+              오늘은 어느 곳으로 떠나볼까요?
+            </span>
+          </div>
+          <div id='MainLocationLinkBox' className='row'>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('경기')}
+            >
+              경기도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('인천')}
+            >
+              인천광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('강원')}
+            >
+              강원특별자치도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('충청북도')}
+            >
+              충청북도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('충청북도')}
+            >
+              충청북도
+            </button>
+          </div>
+          <div id='MainLocationLinkBox' className='row'>
+            <button
+              id='MainLocationButton'
+              className='col-md-3'
+              onClick={() => selectRegionAndNavigate('대전')}
+            >
+              대전광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-3'
+              onClick={() => selectRegionAndNavigate('전라북도')}
+            >
+              전라북도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-3'
+              onClick={() => selectRegionAndNavigate('전라남도')}
+            >
+              전라남도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-3'
+              onClick={() => selectRegionAndNavigate('광주광역시')}
+            >
+              광주광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-3'
+              onClick={() => selectRegionAndNavigate('경상북도')}
+            >
+              경상북도
+            </button>
+          </div>
+          <div id='MainLocationLinkBox' className='row'>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('경상남도')}
+            >
+              경상남도
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('대구광역시')}
+            >
+              대구광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('울산광역시')}
+            >
+              울산광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('부산광역시')}
+            >
+              부산광역시
+            </button>
+            <button
+              id='MainLocationButton'
+              className='col-md-2'
+              onClick={() => selectRegionAndNavigate('제주특별자치도')}
+            >
+              제주특별자치도
+            </button>
+          </div>
         </div>
       </div>
     </div>

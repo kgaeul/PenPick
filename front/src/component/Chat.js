@@ -1,6 +1,8 @@
 import Stomp from 'webstomp-client';
 import React, { useState, useEffect } from 'react';
 import SockJS from 'sockjs-client';
+import Header from './Header';
+import '../css/PensionMainPage.css';
 
 const Chat = () => {
   // 받은 메시지를 저장하기 위한 상태
@@ -17,7 +19,7 @@ const Chat = () => {
     // WebSocket 연결을 설정하는 함수
     const connect = () => {
       // WebSocket 통신을 위한 SockJS 객체 생성
-      const socket = new SockJS('http://localhost:8081/websocket');
+      const socket = new SockJS('http://localhost:8282/websocket');
       console.log('여기까지 됨');
       // WebSocket 연결 위에 Stomp 클라이언트 생성
       var stomp = Stomp.over(socket);
@@ -43,18 +45,14 @@ const Chat = () => {
 
   const sendMessage = (content) => {
     if (stompClient) {
+      const message = [{ content: content, sender: 'user' }];
       // 메시지를 '/app/chat' 목적지로 서버에 전송
       stompClient.send(
         '/app/websocket',
         {}, // 내용과 유저정보를 포함한 메시지 객체 생성
-        JSON.stringify({ content: content, sender: 'user' })
+        JSON.stringify(message)
       );
-      console.log(
-        JSON.stringify(
-          "JSON.stringify({ content, sender: 'user' }) :" +
-            JSON.stringify({ content, sender: 'user' })
-        )
-      );
+      console.log(JSON.stringify(message));
     } else {
       console.error('Stomp client is not initialized.');
     }
@@ -79,19 +77,22 @@ const Chat = () => {
 
   return (
     <div>
-      <div>
-        {messages.map((message, index) => (
-          <div key={index}>
-            {message.sender}: {message.content}
-          </div>
-        ))}
+      <Header />
+      <div id='ChatContainer'>
+        <div id='messageBox'>
+          {messages.map((message, index) => (
+            <div key={index}>
+              {message.sender}: {message.content}
+            </div>
+          ))}
+        </div>
+        <input
+          type='text'
+          onChange={(e) => setInputMessage(e.target.value)}
+          value={inputMessage}
+        />
+        <button onClick={() => sendMessage(inputMessage)}>전송</button>
       </div>
-      <input
-        type='text'
-        onChange={(e) => setInputMessage(e.target.value)}
-        value={inputMessage}
-      />
-      <button onClick={() => sendMessage(inputMessage)}>전송</button>
     </div>
   );
 };

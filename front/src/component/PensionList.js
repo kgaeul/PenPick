@@ -28,41 +28,37 @@ function PensionList() {
   const urlParams = new URLSearchParams(window.location.search);
   const selectedRegion = urlParams.get('region');
 
-  const [filter,setFilter] = useState([]);
-
+  const [filterButton, setFilterButton] = useState(null);
 
   //렌더링 되자마자 지역이름 setSearch에 저장!!!!
   useEffect(() => {
     setSearchTerm(selectedRegion);
-  }, [selectedRegion]); 
+  }, [selectedRegion]);
 
-//렌더링 되자마자 검색값 setSearch에 저장!!!!
-  useEffect(()=>{
-    if(inputValue!==null&&selectedRegion===null){
+  //렌더링 되자마자 검색값 setSearch에 저장!!!!
+  useEffect(() => {
+    if (inputValue !== null && selectedRegion === null) {
       setSearchTerm(inputValue);
     }
-  
-  },[searchTerm])
-
-
-
+  }, [searchTerm]);
 
   //searchTerm 널 값 아니면서 지역이름이 null값일떄!!! 자동으로 검색 메서드 실행
   useEffect(() => {
     if (searchTerm !== '') {
       handleSearch();
-    }else{
-      console.log('검색값이 없습니다.')
+    } else {
+      console.log('검색값이 없습니다.');
     }
   }, [searchTerm]);
 
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8081/penpick/searchAll`,
+        `http://localhost:8282/penpick/searchAll`,
         {
           params: {
             term: searchTerm,
+            filter: filterButton,
           },
         }
       );
@@ -82,6 +78,35 @@ function PensionList() {
   const handleSearch2 = async (e) => {
     e.preventDefault();
     handleSearch();
+  };
+
+  const handleFilter = (filter) => {
+    if (filter === 1) {
+      console.log('수영장');
+      setFilterButton('수영장');
+      handleSearch();
+    } else if (filter === 2) {
+      console.log('바베큐장');
+      setFilterButton('바베큐장');
+    } else if (filter === 3) {
+      console.log('공용샤워실');
+      setFilterButton('공용샤워실');
+    } else if (filter === 4) {
+      console.log('노래방');
+      setFilterButton('노래방');
+    } else if (filter === 5) {
+      console.log('운동시설');
+      setFilterButton('운동시설');
+    } else if (filter === 6) {
+      console.log('세미나룸');
+      setFilterButton('세미나룸');
+    } else if (filter === 7) {
+      console.log('사우나');
+      setFilterButton('사우나');
+    } else if (filter === 8) {
+      console.log('캠프파이어');
+      setFilterButton('캠프파이어');
+    }
   };
 
   return (
@@ -187,12 +212,12 @@ function PensionList() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              {/* <span id='InputBar'>|</span>
+              <span id='InputBar'>|</span>
               <img src={Calendar} id='Calendar' alt='Calendar' />
               <input id='PensionInput' type='text' />
               <span id='InputBar'>|</span>
               <img id='UserImg' src={UserImg} alt='사용자' />
-              <input id='PensionInputNumber' type='text' /> */}
+              <input id='PensionInputNumber' type='text' />
               <button
                 id='PensionSearchButton'
                 type='submit'
@@ -228,16 +253,65 @@ function PensionList() {
               <hr id='hrfilter' />
               <div>
                 <h6 id='filterTitle'>공용시설</h6>
-                <button id='filterButton' >수영장</button>
-                <button id='filterButton'>바베큐장</button>
-                <button id='filterButton'>공용샤워실</button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(1)}
+                  type='button'
+                >
+                  수영장
+                </button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(2)}
+                  type='button'
+                >
+                  바베큐장
+                </button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(3)}
+                  type='button'
+                >
+                  공용샤워실
+                </button>
                 <br />
-                <button id='filterButton'> 노래방</button>
-                <button id='filterButton'>운동시설</button>
-                <button id='filterButton'>세미나룸</button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(4)}
+                  type='button'
+                >
+                  {' '}
+                  노래방
+                </button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(5)}
+                  type='button'
+                >
+                  운동시설
+                </button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(6)}
+                  type='button'
+                >
+                  세미나룸
+                </button>
                 <br />
-                <button id='filterButton'>사우나</button>
-                <button id='filterButton'>캠프파이어</button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(7)}
+                  type='button'
+                >
+                  사우나
+                </button>
+                <button
+                  id='filterButton'
+                  onClick={() => handleFilter(8)}
+                  type='button'
+                >
+                  캠프파이어
+                </button>
               </div>
             </form>
           </div>
