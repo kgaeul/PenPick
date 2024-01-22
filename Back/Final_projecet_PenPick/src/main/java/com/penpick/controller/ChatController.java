@@ -10,7 +10,6 @@ import com.penpick.vo.ChatMessage;
 import com.penpick.vo.ServerMessage;
 
 @Controller
-@CrossOrigin(origins="http://localhost:3000", allowCredentials="true")
 public class ChatController {
 
 	// 클라이언트로부터 메시지를 받는 핸들러
@@ -22,8 +21,7 @@ public class ChatController {
             // 서버 콘솔에 메시지 수신 로그 출력
             System.out.println("Received message: " + message.getContent());
          
-
-        // 받은 메시지를 클라이언트에게 브로드캐스트
+        // 메세지 전송
         return message;
     }
 }
