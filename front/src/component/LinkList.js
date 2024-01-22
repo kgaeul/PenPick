@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PensionMainPage from '../component/PensionMainPage';
-import Mypage from '../component/MyPage';
-import PensionList from '../component/PensionList';
-import Resevation from '../component/Resevation';
-import QnA from '../component/QnA';
-import CartList from '../component/CartList';
-import EventPage from '../component/EventPage';
-import PensionDetailLink from '../component/PensionDetailLink';
+import PensionMainPage from './PensionMainPage';
+import Mypage from './MyPage';
+import PensionList from './PensionList';
+import Resevation from './Resevation';
+import QnA from './QnA';
+import CartList from './CartList';
+import EventPage from './EventPage';
+import PensionDetailLink from './PensionDetailLink';
 import PensionMap from './PensionMap';
-import SearchResult from '../component/SearchResult';
+import SearchResult from './SearchResult';
 import GameLand from './GameLand';
 import Chat from './Chat';
 

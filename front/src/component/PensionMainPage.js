@@ -6,7 +6,7 @@ import FormImg from '../img/파란집.png';
 import React, { useState, useEffect } from 'react';
 import CartImg from '../img/장바구니.png';
 import Pagination from 'react-js-pagination';
-import Header from '../component/Header';
+import Header from './Header';
 import {
   Button,
   Container,
@@ -27,9 +27,9 @@ import BestLocationImg4 from '../img/포천.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
-import PensionList from '../component/PensionList';
+import PensionList from './PensionList';
 import Chat from './Chat';
-import imgChat from './'
+import imgChat from '../img/챗봇.png';
 
 function PensionMainPage() {
   const [name, SetName] = useState('');
@@ -109,7 +109,10 @@ function PensionMainPage() {
         </div>
       </div>
 
-      <a href='Chat'><img src={} alt=''/>채팅</a>
+      <a href='Chat'>
+        <img src={imgChat} alt='챗봇이미지' />
+        채팅
+      </a>
 
       {/* 이벤트 배너 */}
       <div id='Event'>
