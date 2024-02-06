@@ -1,16 +1,16 @@
-# PenPick 파이널 프로젝트
-나만의 펜션을 픽하다
+# Spring 과 React 연결하기
 
-전국 각지에 있는 모든 펜션을 한사이트에서 한 눈에 보기
-곤란했던 펜션의 위치, 펜션 예약과 동시에 픽업까지?
-펜션까지 짐 바리바리 들고가기 힘드셨죠? 펜션 문앞으로 식자재 배달 서비스까지!
+Spring directory는 server로, React는 client로 사용
 
-한 사이트에서 이 모든 걸 경험하실 수 있습니다.
+## Client 설정
 
+npm i axios 통해 API 호출 라이브러리 설치
 
+## server dependency 설정
 
-## 미리보기
+create new spring starter project
 
-## 상세설명
+<img src="./src/img/spring-react dependencies.png" alt="dependencies체크">
 
-## 배운점 & 느낀점
+## server controller 설정
+
