@@ -33,6 +33,7 @@
 #lottoimg:hover {
   box-shadow: 0px 10px 0px 15px orange;
   background: orange;
+  cursor: url('../img/cursor\ \(8\).cur'), auto;
 }
 
 #lottoQ {
@@ -79,9 +80,9 @@
 
 /* 코인 이미지 */
 #coinimg {
-  width: 53px;
-  margin-left: 10px;
-  margin-top: -20px;
+  width: 45px;
+  margin-left: 13px;
+  margin-top: -14px;
   animation: coin 3s ease-out infinite;
 }
 
@@ -128,6 +129,7 @@
   padding: 30px 30px 80px 30px;
   border-bottom: 30px solid gray;
   border-top: 33px solid gray;
+  cursor: url('../img/cursor\ \(8\).cur'), auto;
 }
 
 #GameLandcontainer {
@@ -137,6 +139,7 @@
   padding: 30px 30px 30px 50px;
   border-bottom: 30px solid gray;
   border-top: 33px solid gray;
+  cursor: url('../img/cursor\ \(8\).cur'), auto;
 }
 
 #windowpopbutton1 {
@@ -184,6 +187,7 @@
 #windowpopbutton2:hover,
 #windowpopbutton3:hover {
   box-shadow: inset -1px -1px 0px rgb(32, 32, 32);
+  cursor: url('../img/cursor\ \(8\).cur'), auto;
 }
 
 #lottobigcontainer {
@@ -318,6 +322,7 @@
 #lottobtn:hover {
   background-color: rgb(232, 151, 1);
   box-shadow: 0px 11px 0px 13px rgb(206, 110, 0);
+  cursor: url('../img/cursor\ \(8\).cur'), auto;
 }
 
 #lottoballbox {

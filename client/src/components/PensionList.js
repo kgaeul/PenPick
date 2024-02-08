@@ -49,20 +49,22 @@ function PensionList() {
   const location = useLocation();
 
   // 검색어 받기
-  const inputValue = location.state?.searchTerm || '';
+  const inputValue = location.state?.searchTerm.term;
   //체크인 날짜 받기
-  const inputcheckinDate = location.state?.checkindate || '';
+  const inputcheckinDate = location.state?.searchTerm.checkindate;
   //체크아웃 날짜 받기
-  const inputcheckoutDate = location.state?.checkoutdate || '';
+  const inputcheckoutDate = location.state?.searchTerm.checkoutdate;
+  // 인원수
+  const peopleNumber = location.state?.searchTerm.peopleNumber;
 
-  console.log('날짜 : ' + inputcheckinDate, '날짜 : ' + inputcheckoutDate);
+  console.log(
+    '검색어 : ' + inputValue + '체크인 날짜 : ' + inputcheckinDate,
+    '체크아웃 날짜 : ' + inputcheckoutDate + '인원수 : ' + peopleNumber
+  );
 
   // 지역이름 받기
   const urlParams = new URLSearchParams(window.location.search);
   const selectedRegion = urlParams.get('region');
-
-  // 그림받기
-  const [pensionImg, setPensionImg] = useState([]);
 
   // 필터링 버튼
   const [filterButton, setFilterButton] = useState(null);

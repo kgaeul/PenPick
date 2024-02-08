@@ -1,8 +1,9 @@
 package com.penpick.pension.model;
 
+import java.sql.Blob;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import lombok.Data;
 
 @Data
@@ -66,7 +67,6 @@ public class Pensions{
 	
 	private int group_room;
 	
-	@Lob
-	public byte[] img;
+//	public Blob img;
 
 }

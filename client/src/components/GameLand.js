@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import lottoimg from '../img/로또.png';
-import coinimg from '../img/코인.png';
+import coinimg from '../img/coin2.png';
 
 function GameLand() {
   return (

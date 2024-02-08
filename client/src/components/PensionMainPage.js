@@ -32,22 +32,39 @@ import imgChat from '../img/챗봇.png';
 import marker from '../img/마커2.png';
 
 function PensionMainPage() {
-  const [name, SetName] = useState('');
-  // 검색어
-  const [searchTerm, setSearchTerm] = useState('');
-  // 검색결과
-  const [searchResult, setSearchResult] = useState([]);
+  // 날짜
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = ('0' + (now.getMonth() + 1)).slice(-2);
+  const day = ('0' + now.getDate()).slice(-2);
 
-  const [checkindate, setCheckindate] = useState('');
-  const [checkoutdate, setCheckoutdate] = useState('');
+  // 다음 날짜 계산
+  const nextDay = new Date(now);
+  nextDay.setDate(nextDay.getDate() + 1);
+  const nextDayOfMonth = ('0' + nextDay.getDate()).slice(-2);
+  const Month = ('0' + (nextDay.getMonth() + 1)).slice(-2);
+  const nextYear = nextDay.getFullYear();
+
+  // 한 달 후 날짜 계산
+  const oneMonthLater = new Date(now);
+  oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
+  const oneMonthLaterYear = oneMonthLater.getFullYear();
+  const oneMonthLaterMonth = ('0' + (oneMonthLater.getMonth() + 1)).slice(-2);
+  const oneMonthLaterDay = ('0' + oneMonthLater.getDate()).slice(-2);
+
+  // 검색어
+  const [searchTerm, setSearchTerm] = useState({
+    term: '',
+    checkindate: year + '-' + month + '-' + day,
+    checkoutdate: nextYear + '-' + Month + '-' + nextDayOfMonth,
+    peopleNumber: '',
+  });
   // 검색 후 페이지 이동
   const navigate = useNavigate();
   const handleSearch = () => {
     navigate('/PensionList', {
       state: {
-        searchTerm: searchTerm,
-        checkindate: checkindate,
-        checkoutdate: checkoutdate,
+        searchTerm,
       },
     });
   };
@@ -100,8 +117,13 @@ function PensionMainPage() {
               id='input1'
               className='form-control col-md-3'
               placeholder='펜션을 입력하세요'
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm.term}
+              onChange={(e) =>
+                setSearchTerm((prevState) => ({
+                  ...prevState,
+                  term: e.target.value,
+                }))
+              }
             />
             {/* 체크인날짜 검색창 */}
             <input
@@ -109,8 +131,15 @@ function PensionMainPage() {
               className='form-control col-md-3'
               type='date'
               placeholder='날짜'
-              value={checkindate}
-              onChange={(e) => setCheckindate(e.target.value)}
+              value={searchTerm.checkindate}
+              min={year + '-' + month + '-' + day}
+              max={oneMonthLaterYear + '-' + oneMonthLaterMonth + '-' + day}
+              onChange={(e) =>
+                setSearchTerm((prevState) => ({
+                  ...prevState,
+                  checkindate: e.target.value,
+                }))
+              }
             />
             {/* 체크아웃날짜 검색창 */}
             <input
@@ -118,9 +147,21 @@ function PensionMainPage() {
               className='form-control col-md-3'
               type='date'
               placeholder='날짜'
-              value={checkoutdate}
-              min={checkindate}
-              onChange={(e) => setCheckoutdate(e.target.value)}
+              value={searchTerm.checkoutdate}
+              min={nextYear + '-' + Month + '-' + nextDayOfMonth}
+              max={
+                oneMonthLaterYear +
+                '-' +
+                oneMonthLaterMonth +
+                '-' +
+                nextDayOfMonth
+              }
+              onChange={(e) =>
+                setSearchTerm((prevState) => ({
+                  ...prevState,
+                  checkoutdate: e.target.value,
+                }))
+              }
             />
             {/* 인원입력칸 */}
             <input
@@ -130,9 +171,14 @@ function PensionMainPage() {
               className='form-control col-md-3'
               placeholder='인원'
               type='number'
+              onChange={(e) =>
+                setSearchTerm((prevState) => ({
+                  ...prevState,
+                  peopleNumber: e.target.value,
+                }))
+              }
             />
             {/* 펜션 검색버튼 */}
-            {/* <button onClick={() => navigate('/searchResult')}>검색</button> */}
             <button
               id='MainsearchButton'
               className='btn col-md-3'
