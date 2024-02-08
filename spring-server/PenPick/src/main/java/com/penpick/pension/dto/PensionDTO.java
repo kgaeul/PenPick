@@ -1,16 +1,11 @@
-package com.penpick.pension.model;
+package com.penpick.pension.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import lombok.Data;
 
 @Data
-@Entity
-public class Pensions{
-
-	@Id
-	private Long id;
+public class PensionDTO {
+	
+private Long id;
 	
 	private String  name;
 	
@@ -66,7 +61,7 @@ public class Pensions{
 	
 	private int group_room;
 	
-	@Lob
-	public byte[] img;
+	public String imgData;
+	
 
 }

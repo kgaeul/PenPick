@@ -32,6 +32,8 @@ function PensionList() {
 
   const indexFirstPension = indexOfLastPension - pensionsPerPage;
 
+  const [imageUrl, setImageUrl] = useState([]);
+
   // 페이지를 변경하기 위한 핸들러 추가
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -113,23 +115,6 @@ function PensionList() {
     } catch (error) {
       console.error('Error searching users:', error);
       setSearchResult2([]);
-    }
-  };
-
-  useEffect(() => {
-    handleImgSearch();
-  }, []);
-
-  const handleImgSearch = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8282/penpick/pensionImgList`
-      );
-
-      setPensionImg(response.data);
-    } catch (error) {
-      console.error('Error searching result:', error);
-      setPensionImg([]);
     }
   };
 
@@ -387,17 +372,8 @@ function PensionList() {
                   >
                     이미지
                     <ul>
-                      {pensionImg
-                        .filter((image) => image.name === pension.name)
-                        .map((image) => (
-                          <li key={image.imageName}>
-                            <img src={image.ImageData} alt={image.imageName} />
-                            <p>Image Name: {image.imageName}</p>
-                            <p>Name: {image.name}</p>
-                          </li>
-                        ))}
+                      <img src={pension.img} alt='펜션사진' />
                     </ul>
-                    <img src={pensionImg} alt='Pension Image' />
                   </span>
                   <div id='pensionDescription' className='col-md-8'>
                     <p

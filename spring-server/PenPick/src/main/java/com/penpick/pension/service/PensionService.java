@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.penpick.pension.model.pimg;
 import com.penpick.pension.model.Pensions;
-import com.penpick.pension.repository.PensionImgRepository;
 import com.penpick.pension.repository.PensionRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -17,7 +16,6 @@ public class PensionService {
 	
 	@Autowired 
 	private PensionRepository pensionRepository;
-	private PensionImgRepository pensionImgRepository;
 	
 	
 	//============================================가을이 것=======================================

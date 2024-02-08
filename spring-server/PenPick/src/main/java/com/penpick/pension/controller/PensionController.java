@@ -1,22 +1,23 @@
 	package com.penpick.pension.controller;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.penpick.pension.dto.PensionWithBase64Image;
+import com.penpick.pension.dto.PensionDTO;
 import com.penpick.pension.model.Pensions;
 import com.penpick.pension.service.PensionService;
+
 
 
 @RequestMapping("/penpick")
@@ -48,7 +49,6 @@ public class PensionController {
     }
 	
 
-	
 	//모든 펜션 조회
 	@GetMapping("/pensionList")
 	public List<Pensions> getAllPensionList(){
