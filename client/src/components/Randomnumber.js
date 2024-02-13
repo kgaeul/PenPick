@@ -4,6 +4,7 @@ import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap';
 import { useNavigate } from 'react-router';
+import coinimg from '../img/coin2.png';
 
 function RandomNumber() {
   // spinning 상태와 선택된 번호를 저장하는 selectedOptions 상태를 정의합니다.
@@ -47,9 +48,12 @@ function RandomNumber() {
       <Header />
       <div id='lottobigcontainer'>
         <div id='lottosecondContainer'>
-          <a href='/GameLand'>
-            <h5 id='gamelandtitle'>게임랜드</h5>
-          </a>
+          <div id='gameCoinANDTitle'>
+            <a href='/GameLand'>
+              <h5 id='gamelandtitle'>게임랜드</h5>
+            </a>
+            <img src={coinimg} alt='코인' id='coinimg' />
+          </div>
           <h6>다양한 미니게임을 통해 점수를 얻어봐요!</h6>
           <h6>행운이 따른다면 자그마한 선물이....?</h6>
           <div id='lottoSubmit'>

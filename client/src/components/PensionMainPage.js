@@ -57,7 +57,7 @@ function PensionMainPage() {
     term: '',
     checkindate: year + '-' + month + '-' + day,
     checkoutdate: nextYear + '-' + Month + '-' + nextDayOfMonth,
-    peopleNumber: '',
+    peopleNumber: '2',
   });
   // 검색 후 페이지 이동
   const navigate = useNavigate();
@@ -148,7 +148,7 @@ function PensionMainPage() {
               type='date'
               placeholder='날짜'
               value={searchTerm.checkoutdate}
-              min={nextYear + '-' + Month + '-' + nextDayOfMonth}
+              min={searchTerm.checkindate}
               max={
                 oneMonthLaterYear +
                 '-' +
@@ -171,6 +171,7 @@ function PensionMainPage() {
               className='form-control col-md-3'
               placeholder='인원'
               type='number'
+              value={searchTerm.peopleNumber}
               onChange={(e) =>
                 setSearchTerm((prevState) => ({
                   ...prevState,

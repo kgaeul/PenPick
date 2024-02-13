@@ -280,6 +280,7 @@
   background-color: rgb(243, 241, 241);
   border: none;
   border-radius: 10px;
+  padding-top: 7px;
 }
 
 #input1::placeholder,
@@ -297,6 +298,8 @@
   background-color: rgb(243, 241, 241);
   border: none;
   border-radius: 10px;
+  padding-top: 7px;
+  padding-left: 20px;
 }
 
 /*PenPick 검색창의 날짜 input태그*/
@@ -307,6 +310,7 @@
   background-color: rgb(243, 241, 241);
   border: none;
   border-radius: 10px;
+  padding-top: 7px;
 }
 
 /*PenPick 검색창 속 파란색 막대기 신경 안써도 됨*/

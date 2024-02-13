@@ -6,6 +6,7 @@ import 'react-bootstrap';
 import { useLocation } from 'react-router';
 import lottoimg from '../img/로또.png';
 import lever from '../img/레버.png';
+import coinimg from '../img/coin2.png';
 
 function RandomballGame() {
   const location = useLocation();
@@ -52,9 +53,12 @@ function RandomballGame() {
       <Header />
       <div id='lottobigcontainer'>
         <div id='lottosecondContainer'>
-          <a href='/GameLand'>
-            <h5 id='gamelandtitle'>게임랜드</h5>
-          </a>
+          <div id='gameCoinANDTitle'>
+            <a href='/GameLand'>
+              <h5 id='gamelandtitle'>게임랜드</h5>
+            </a>
+            <img src={coinimg} alt='코인' id='coinimg' />
+          </div>
           <h6>다양한 미니게임을 통해 점수를 얻어봐요!</h6>
           <h6>행운이 따른다면 자그마한 선물이....?</h6>
           <div id='lottoSubmit'>
@@ -108,7 +112,7 @@ function RandomballGame() {
                     disabled={spinning}
                     id='roulettebutton'
                   >
-                    <h5 id='spinningment'>{spinning ? '돌리는 중...' : ''}</h5>
+                    {/* <h5 id='spinningment'>{spinning ? '돌리는 중...' : ''}</h5> */}
                     <br />
                     <img src={lever} alt='레버' id='leverimg' />
                   </button>

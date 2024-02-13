@@ -32,8 +32,6 @@ function PensionList() {
 
   const indexFirstPension = indexOfLastPension - pensionsPerPage;
 
-  const [imageUrl, setImageUrl] = useState([]);
-
   // 페이지를 변경하기 위한 핸들러 추가
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -51,11 +49,17 @@ function PensionList() {
   // 검색어 받기
   const inputValue = location.state?.searchTerm.term;
   //체크인 날짜 받기
-  const inputcheckinDate = location.state?.searchTerm.checkindate;
+  const [inputcheckinDate, setInputcheckinDate] = useState(
+    location.state?.searchTerm.checkindate
+  );
   //체크아웃 날짜 받기
-  const inputcheckoutDate = location.state?.searchTerm.checkoutdate;
+  const [inputcheckoutDate, setInputcheckoutDate] = useState(
+    location.state?.searchTerm.checkoutdate
+  );
   // 인원수
-  const peopleNumber = location.state?.searchTerm.peopleNumber;
+  const [peopleNumber, setPeopleNumber] = useState(
+    location.state?.searchTerm.peopleNumber
+  );
 
   console.log(
     '검색어 : ' + inputValue + '체크인 날짜 : ' + inputcheckinDate,
@@ -91,8 +95,6 @@ function PensionList() {
   useEffect(() => {
     if (searchTerm !== '') {
       handleSearch();
-    } else {
-      console.log('검색값이 없습니다.');
     }
   }, [searchTerm]);
 
@@ -109,11 +111,17 @@ function PensionList() {
       );
       console.log(response.data);
 
-      const responseData = Array.isArray(response.data)
-        ? response.data
-        : [response.data];
+      if (response.data.length === 0) {
+        alert('해당하는 펜션 검색결과가 없습니다.');
+      } else {
+        console.log(response.data);
 
-      setSearchResult2(responseData);
+        const responseData = Array.isArray(response.data)
+          ? response.data
+          : [response.data];
+
+        setSearchResult2(responseData);
+      }
     } catch (error) {
       console.error('Error searching users:', error);
       setSearchResult2([]);
@@ -127,30 +135,37 @@ function PensionList() {
 
   const handleFilter = (filter) => {
     if (filter === 1) {
-      console.log('수영장');
-      setFilterButton('수영장');
+      setFilterButton('피시방');
       handleSearch();
+      console.log('피시방');
     } else if (filter === 2) {
-      console.log('바베큐장');
       setFilterButton('바베큐장');
+      handleSearch();
+      console.log('바베큐장');
     } else if (filter === 3) {
       console.log('공용샤워실');
       setFilterButton('공용샤워실');
+      handleSearch();
     } else if (filter === 4) {
       console.log('노래방');
       setFilterButton('노래방');
+      handleSearch();
     } else if (filter === 5) {
       console.log('운동시설');
       setFilterButton('운동시설');
+      handleSearch();
     } else if (filter === 6) {
       console.log('세미나룸');
       setFilterButton('세미나룸');
+      handleSearch();
     } else if (filter === 7) {
       console.log('사우나');
       setFilterButton('사우나');
+      handleSearch();
     } else if (filter === 8) {
       console.log('캠프파이어');
       setFilterButton('캠프파이어');
+      handleSearch();
     }
   };
 
@@ -258,11 +273,31 @@ function PensionList() {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <span id='InputBar'>|</span>
-              <img src={Calendar} id='Calendar' alt='Calendar' />
-              <input id='PensionInput' type='text' />
+              <input
+                id='HeaderPensionInputDate'
+                value={inputcheckinDate}
+                min={inputcheckinDate}
+                type='date'
+                onChange={(e) => setInputcheckinDate(e.target.value)}
+              />
               <span id='InputBar'>|</span>
-              <img id='UserImg' src={User} alt='사용자' />
-              <input id='PensionInputNumber' type='text' />
+              <input
+                id='HeaderPensionInputDate'
+                min={inputcheckinDate}
+                value={inputcheckoutDate}
+                type='date'
+                onChange={(e) => setInputcheckoutDate(e.target.value)}
+              />
+              <span id='InputBar'>|</span>
+              <input
+                id='HeaderPensionInputNumber'
+                value={peopleNumber}
+                type='number'
+                onChange={(e) => setPeopleNumber(e.target.value)}
+                min={1}
+                max={6}
+              />
+              명
               <button
                 id='PensionSearchButton'
                 type='submit'
@@ -303,7 +338,7 @@ function PensionList() {
                     onClick={() => handleFilter(1)}
                     type='button'
                   >
-                    수영장
+                    피시방
                   </button>
                   <button
                     id='filterButton'

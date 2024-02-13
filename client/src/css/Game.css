@@ -70,6 +70,12 @@
   width: 300px;
 }
 
+#gameCoinANDTitle {
+  display: grid;
+  grid-template-columns: 170px 45px;
+  margin-top: 20px;
+}
+
 #gamelandtitle {
   font-family: 'DNFBitBitv2';
   color: rgb(250, 91, 24);
@@ -81,9 +87,8 @@
 /* 코인 이미지 */
 #coinimg {
   width: 45px;
-  margin-left: 13px;
-  margin-top: -14px;
   animation: coin 3s ease-out infinite;
+  margin-top: 2px;
 }
 
 @keyframes coin {
@@ -197,7 +202,7 @@
 
 #lottosecondContainer {
   margin: auto;
-  width: 1250px;
+  width: 1000px;
 }
 
 .roulette-container {

@@ -44,7 +44,31 @@ public class PensionService {
 	
 	//펜션 통합 검색
 	public List<Pensions> PensionFilterList(String term,String filter){
-		return pensionRepository.findByNameContaining(term,filter);
+		
+		if("바베큐장".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findByBarbequeContaining(term, "있음");
+		}else if("공용샤워실".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findByPublic_showerContaining(term, "있음");
+		}else if("노래방".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findByKaraokeContaining(term,"있음");
+		}else if("운동시설".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findBySportsContaining(term,"있음");
+		}else if("세미나룸".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findBySeminarContaining(term,"있음");
+		}else if("사우나".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findByNameContaining(term,"있음");
+		}else if("캠프파이어".equals(filter)) {
+			System.out.println("필터링 단어 : "+filter);
+			return pensionRepository.findByCampfireContaining(term,"있음");
+		}else {
+		return pensionRepository.findByNameOrAddressContaining(term);
+		}
 	}
 	
 	//펜션 전부가져오기

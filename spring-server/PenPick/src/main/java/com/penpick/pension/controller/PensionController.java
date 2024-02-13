@@ -1,23 +1,21 @@
 	package com.penpick.pension.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.penpick.pension.dto.PensionDTO;
 import com.penpick.pension.model.Pensions;
 import com.penpick.pension.service.PensionService;
-
 
 
 @RequestMapping("/penpick")
@@ -27,32 +25,44 @@ public class PensionController {
 	@Autowired
 	private PensionService pensionService;
 	
-	//펜션 통합검색(김가을)
+//	펜션 이름 검색
+//	@GetMapping("/searchPension")
+//	public List<Pensions>  PensionNameList(@RequestParam String name) {
+//		return pensionService.PensionNameList(name);
+//	}
+
+//	펜션 통합검색
 	@GetMapping("/searchAll")
     public List<Pensions> searchUsers(
             @RequestParam(required = false) String term,@RequestParam(required = false) String filter)  {
-		System.out.println("검색어 : "+term+"필터링 :"+filter);
-		
-		//검색어만 있을 때
+		System.out.println(term);
+		System.out.println(filter);
         if (filter == null) {
             return pensionService.PensionList(term);
-            
-        //검색어 필터링 검색어 둘다 있을 때
-        } else if(term != null&&filter !=null ){
-        	return pensionService.PensionFilterList(term, "있음");
-        	
-        //둘다 없을 때
+        } else if(filter !=null&&term != null){
+        	return pensionService.PensionFilterList(term, filter);
         } else {
-             throw new IllegalArgumentException("요청하는 파라미터 값을 찾을 수 없습니다.");
-        }
+            return pensionService.getAllPensionList();
+       }
     }
 	
 
-	//모든 펜션 조회(김가을)
+	
+	//모든 펜션 조회
 	@GetMapping("/pensionList")
 	public List<Pensions> getAllPensionList(){
 		return pensionService.getAllPensionList();
 	}
+	
+//	@GetMapping("/pensionImgList")
+//	public List<Pensions> getAllPensionImgList(){
+//		Blob blob = resultSet.getBlob("profile_image");
+//		byte[] imageData = blob.getBytes(1, (int) blob.length());
+//		String imageBase64 = java.util.Base64.getEncoder().encodeToString(imageData);
+//		String profile_image = "data:image/jpeg;base64, " + imageBase64;
+//		return pensionService.getAllPensionImgList();
+//	}
+	
 
 	
 	// 펜션 상세 페이지 이동(서광원)

@@ -1,6 +1,6 @@
-/* #AllContain {
-  width: 1900px;
-} */
+#AllContain {
+  min-width: 600px;
+}
 #MapImg {
   width: 350px;
   border-radius: 10px;
@@ -17,15 +17,30 @@
   background-color: rgb(242, 242, 242);
   border: none;
   height: 40px;
-  width: 140px;
+  width: 110px;
   margin-top: 4px;
+  text-align: center;
 }
-#PensionInputNumber {
+#HeaderPensionInputNumber {
   background-color: rgb(242, 242, 242);
   border: none;
   height: 40px;
-  width: 100px;
+  width: 34px;
   margin-top: 4px;
+  text-align: center;
+}
+
+#HeaderPensionInputNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#HeaderPensionInputDate {
+  background-color: rgb(242, 242, 242);
+  border: none;
+  height: 40px;
+  width: 130px;
+  margin-top: 4px;
+  text-align: center;
 }
 
 /* 헤더부분 Hr */

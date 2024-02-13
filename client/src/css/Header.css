@@ -192,12 +192,13 @@
 #PensionSearchForm {
   background-color: rgb(242, 242, 242);
   border-radius: 10px;
-  padding-left: 20px;
   width: 470px;
   display: inline-block;
   height: 45px;
   margin-top: -8px;
   margin-left: 40px;
+  font-size: 14px;
+  padding: 0px 5px 0px 5px;
 }
 
 /* 검색결과 글씨 */
@@ -235,7 +236,8 @@
 
 #PensionSearchImg {
   background-color: none;
-  width: 25px;
+  width: 17px;
+  padding-bottom: 5px;
 }
 
 /* input 사이에 있는 막대기 */
