@@ -21,24 +21,28 @@
 
 ## 프로젝트 소개
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/09ef2013-5232-4a8c-9c0b-1202f79dc63d">
-- 메인화면 페이지
+
+- ####  메인화면 페이지
 펜픽에 접속하면 제일 먼저 보이는 페이지로 펜션이름, 지역 이름,체크인-체크아웃날짜,인원 수로 검색이 가능하다.
 
 
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/d887106a-e26f-44cc-8302-9b118d817f01">
-- 메인화면 페이지
+
+- #### 메인화면 페이지
 한달간 이용내역 기준으로 펜션 인기순위와 인기지역 순위를 확인가능하다.
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/d8b71230-e508-4b39-b907-6a2b09e35c83">
-- 채팅 창
+
+- #### 채팅 창
 메인화면에서 챗봇 이미지를 클릭하여 접속 가능하다.
 실제로 채팅 시에는 프로필 사진 아래에 유저의 아이디가 표시되며 실시간으로 채팅이 가능하다.
 일회성 채팅으로 채팅을 종료한 후에는 채팅과 관련된 모든 데이터가 삭제된다.
 
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/099c50a5-011f-4e13-8b9c-17dd2b912c7d">
-- 펜션 목록 페이지 
+
+- #### 펜션 목록 페이지 
 메인페이지에서 검색한 결과를 띄워주는 창으로, 메인페이지에서 지역 카테고리를 클릭해서 들어오는 것도 가능하다. 
 왼쪽 하단의 옵션 필터링 버튼을 통해 실시간으로 필터링 검색이 가능하다.
 펜션 목록 중 펜션 사진이나 펜션 이름을 클릭 시 펜션 상세 페이지로 이동이 가능하다.
@@ -47,21 +51,25 @@
 
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/7a44fce6-5551-4a8e-b6c0-2706a47cf7e7">
-- 펜션 지도
+
+- ####  펜션 지도
 카카오맵 api를 이용하여 전국의 모든 펜션 위치를 확인가능하도록 하였으며 제일 처음으로 뜨는 펜션 위치는 검색 결과중 첫 번째 펜션이다.
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/d186591e-fef6-44a1-bcdc-e8825e9244f5">
-- 이벤트페이지
+
+- #### 이벤트페이지
 이벤트 페이지 에서는 현재 진행하고 있는 이벤트 목록 조회가 가능하다.
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/544aa1a5-f348-4bef-9a3f-bdad2e704483">
-- 이벤트페이지
+
+- #### 이벤트페이지
 이벤트 사진이나 제목 클릭 시 이벤트 상세페이지로 이동하며 상세페이지에서는 이벤트 상세내용 조회와 댓글 확인이 가능하다. 로그인 한 유저일 경우 댓글 작성도 가능하다.
 <hr>
 
 
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/14301a3f-b80b-45f5-b332-2b2bcca59056">
-게임랜드
+
+- #### 게임랜드
 게임랜드 페이지 메인화면에서 행운의 공뽑기와 포춘쿠키 뽑기 게임을 선택할 수 있다.
 
 <hr>
@@ -69,13 +77,15 @@
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/7ca1471f-2900-402e-9617-dd640a757c83">
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/d07914ac-3073-44d3-9054-241e788196b0">
 
-게임랜드
+
+- #### 게임랜드
 사용자가 입력한 숫자와 랜덤으로 뽑힌 번호의 결과 비교를 통해 게임의 승패를 확인할수 있다.
 
 <hr>
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/9bc795ed-8c43-4fbc-97f3-a1f1deeed812">
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/c3886786-f2a7-48cc-82b0-3eff33bb2f7d">
-게임랜드
+
+- #### 게임랜드
 포춘쿠키 뽑기 게임은 다 랜덤으로 운세를 출력하도록 하였으며, 사용자 아이디별 하루에 한 번씩만 참여가 가능하다.
 <hr>
 
