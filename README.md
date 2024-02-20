@@ -20,6 +20,8 @@
 <br>
 
 ## 프로젝트 소개
+아래의 프로젝트는 전부 개인 작업물입니다.
+
 <img src="https://github.com/kgaeul/PenPick/assets/143372208/09ef2013-5232-4a8c-9c0b-1202f79dc63d">
 
 - ####  메인화면 페이지
@@ -55,12 +57,15 @@
 - ####  펜션 지도
 카카오맵 api를 이용하여 전국의 모든 펜션 위치를 확인가능하도록 하였으며 제일 처음으로 뜨는 펜션 위치는 검색 결과중 첫 번째 펜션이다.
 <hr>
-<img src="https://github.com/kgaeul/PenPick/assets/143372208/d186591e-fef6-44a1-bcdc-e8825e9244f5">
+
+<img src="https://github.com/kgaeul/PenPick/assets/143372208/544aa1a5-f348-4bef-9a3f-bdad2e704483">
 
 - #### 이벤트페이지
 이벤트 페이지 에서는 현재 진행하고 있는 이벤트 목록 조회가 가능하다.
+
 <hr>
-<img src="https://github.com/kgaeul/PenPick/assets/143372208/544aa1a5-f348-4bef-9a3f-bdad2e704483">
+<img src="https://github.com/kgaeul/PenPick/assets/143372208/d186591e-fef6-44a1-bcdc-e8825e9244f5">
+
 
 - #### 이벤트페이지
 이벤트 사진이나 제목 클릭 시 이벤트 상세페이지로 이동하며 상세페이지에서는 이벤트 상세내용 조회와 댓글 확인이 가능하다. 로그인 한 유저일 경우 댓글 작성도 가능하다.
